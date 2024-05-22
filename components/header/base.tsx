@@ -40,7 +40,7 @@ export const BasePagesHeader = ({
   return (
     <header>
       <NavigationMenu>
-        <NavigationMenuLink asChild className="px-0">
+        <NavigationMenuLink asChild className="flex-1 px-0">
           <Link href="/">
             <StoreLogo settings={storeSettings} />
           </Link>
@@ -48,7 +48,7 @@ export const BasePagesHeader = ({
 
         {nav}
 
-        <div className="flex">
+        <div className="flex flex-1 justify-end">
           <NavigationMenuList>
             <NavigationMenuItem>{quickSearch}</NavigationMenuItem>
 

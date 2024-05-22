@@ -2,6 +2,7 @@ import { getBestSellingProducts } from '~/client/queries/get-best-selling-produc
 import { getFeaturedProducts } from '~/client/queries/get-featured-products';
 import { Hero } from '~/components/hero';
 import { ProductCardCarousel } from '~/components/product-card-carousel';
+import Image from 'next/image';
 
 export default async function Home() {
   const [bestSellingProducts, featuredProducts] = await Promise.all([
@@ -9,11 +10,54 @@ export default async function Home() {
     getFeaturedProducts({ imageWidth: 500, imageHeight: 500 }),
   ]);
 
+  const logos = [
+    {
+      alt: 'Talley & Twine',
+      src: '/images/talley-and-twine.svg',
+      width: 160,
+      height: 24,
+    },
+    {
+      alt: 'Talley & Twine',
+      src: '/images/talley-and-twine.svg',
+      width: 160,
+      height: 24,
+    },
+    {
+      alt: 'Talley & Twine',
+      src: '/images/talley-and-twine.svg',
+      width: 160,
+      height: 24,
+    },
+    {
+      alt: 'Talley & Twine',
+      src: '/images/talley-and-twine.svg',
+      width: 160,
+      height: 24,
+    },
+  ];
+
   return (
     <>
       <Hero />
 
-      <div className="my-10">
+      <div className="flex h-36 w-full divide-x divide-black bg-white">
+        {logos.map((logo, index) => (
+          <div className="w-full place-content-center p-8 ">
+            <Image
+              key={index}
+              alt={logo.alt}
+              className="mx-auto object-contain"
+              width={logo.width}
+              height={logo.height}
+              priority={true}
+              src={logo.src}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className="p-5 md:p-8 lg:p-10">
         <ProductCardCarousel
           products={bestSellingProducts}
           showCart={false}
@@ -21,12 +65,12 @@ export default async function Home() {
           title="Best Selling Products"
         />
 
-        <ProductCardCarousel
+        {/* <ProductCardCarousel
           products={featuredProducts}
           showCart={false}
           showCompare={false}
           title="Featured Products"
-        />
+        /> */}
       </div>
     </>
   );

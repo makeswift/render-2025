@@ -27,11 +27,7 @@ export const BaseHeaderNav = ({
   return (
     <>
       <NavigationMenuList
-        className={cn(
-          !inCollapsedNav && 'lg:gap-4',
-          inCollapsedNav && 'flex-col items-start pb-6',
-          className,
-        )}
+        className={cn(!inCollapsedNav && '', inCollapsedNav && 'flex-col items-start', className)}
       >
         {categoryTree.map((category) => (
           <NavigationMenuItem className={cn(inCollapsedNav && 'w-full')} key={category.path}>
@@ -46,9 +42,12 @@ export const BaseHeaderNav = ({
                     </NavigationMenuLink>
                     <span className={cn(inCollapsedNav && 'p-3')}>
                       <ChevronDown
+                        size={16}
+                        strokeWidth={2.5}
+                        absoluteStrokeWidth={true}
                         aria-hidden="true"
                         className={cn(
-                          'cursor-pointer transition duration-200 group-data-[state=open]/button:-rotate-180',
+                          '-translate-y-[1px] cursor-pointer transition duration-200 group-data-[state=open]/button:-rotate-180',
                         )}
                       />
                     </span>

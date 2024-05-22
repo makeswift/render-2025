@@ -26,9 +26,11 @@ export const Hero = () => (
             priority
             src={SlideshowBG}
           />
-          <div className="flex flex-col gap-4 px-12 pb-48 pt-36">
-            <h2 className="text-5xl font-black lg:text-6xl">25% Off Sale</h2>
-            <p className="max-w-xl">
+          <div className="flex max-w-3xl flex-col gap-4 px-12 pb-48 pt-36">
+            <h2 className="font-header text-5xl font-semibold uppercase tracking-wide text-green lg:text-6xl">
+              25% Off Sale
+            </h2>
+            <p className="text-lg">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
               incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
             </p>

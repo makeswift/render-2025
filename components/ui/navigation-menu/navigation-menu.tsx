@@ -51,7 +51,7 @@ const NavigationMenu = forwardRef<
           <div className="relative">
             <div
               className={cn(
-                'group flex min-h-[92px] items-center justify-between gap-6 overflow-hidden bg-white px-6 2xl:container sm:px-10 lg:gap-8 lg:px-12 2xl:mx-auto 2xl:px-0',
+                'group flex min-h-[92px] items-center gap-6 overflow-hidden border border-b-0 border-black bg-gold px-5 font-display text-xs uppercase sm:px-8 lg:gap-8 lg:px-10',
                 className,
               )}
               {...props}
@@ -79,7 +79,7 @@ const NavigationMenuList = forwardRef<
   ComponentPropsWithRef<typeof NavigationMenuPrimitive.List>
 >(({ children, className, ...props }, ref) => (
   <NavigationMenuPrimitive.List
-    className={cn('flex items-center gap-2 lg:gap-4', className)}
+    className={cn('flex items-center gap-3', className)}
     ref={ref}
     {...props}
   >
@@ -110,7 +110,7 @@ const NavigationMenuTrigger = forwardRef<
 >(({ className, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Trigger
     className={cn(
-      'group/button flex w-full items-center justify-between gap-1 p-3 font-semibold hover:text-blue-primary focus:outline-none focus:ring-4 focus:ring-blue-primary/20',
+      'group/button flex w-full items-center justify-between gap-1 p-3 uppercase focus:outline-none focus:ring-4 focus:ring-black/20',
       className,
     )}
     ref={ref}
@@ -156,7 +156,7 @@ const NavigationMenuLink = forwardRef<
   return (
     <NavigationMenuPrimitive.Link
       className={cn(
-        'flex justify-between p-3 font-semibold hover:text-blue-primary focus:outline-none focus:ring-4 focus:ring-blue-primary/20',
+        'flex justify-between p-3 pr-1 font-semibold hover:text-black focus:outline-none focus:ring-4 focus:ring-black/20',
         className,
       )}
       onClick={() => setIsExpanded(false)}
@@ -180,7 +180,7 @@ const NavigationMenuToggle = forwardRef<ElementRef<'button'>, ComponentPropsWith
         aria-expanded={isExpanded}
         aria-label="Toggle navigation"
         className={cn(
-          'group p-3 hover:text-blue-primary focus:outline-none focus:ring-4 focus:ring-blue-primary/20',
+          'group p-3 hover:text-black focus:outline-none focus:ring-4 focus:ring-black/20',
           className,
         )}
         onClick={(e) => {

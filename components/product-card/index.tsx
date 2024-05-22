@@ -73,6 +73,7 @@ interface ProductCardProps {
   imagePriority?: boolean;
   showCart?: boolean;
   showCompare?: boolean;
+  mask?: boolean;
 }
 
 export const ProductCard = ({
@@ -81,6 +82,7 @@ export const ProductCard = ({
   imagePriority = false,
   showCart = true,
   showCompare = true,
+  mask = true,
 }: ProductCardProps) => {
   const summaryId = useId();
 
@@ -92,11 +94,16 @@ export const ProductCard = ({
     <ComponentsProductCard key={product.entityId}>
       <ProductCardImage>
         <div
-          className={cn('relative flex-auto', {
-            'aspect-square': imageSize === 'square',
-            'aspect-[4/5]': imageSize === 'tall',
-            'aspect-[7/5]': imageSize === 'wide',
-          })}
+          className={cn(
+            'relative flex-auto',
+            {
+              'aspect-square': imageSize === 'square',
+              'aspect-[4/5]': imageSize === 'tall',
+              'aspect-[7/5]': imageSize === 'wide',
+            },
+            mask &&
+              '[-webkit-mask-image:url(/images/image-mask.svg)] [-webkit-mask-size:100%] [mask-image:url(/images/image-mask.svg)] [mask-size:100%]',
+          )}
         >
           {product.defaultImage ? (
             <Image
@@ -116,7 +123,7 @@ export const ProductCard = ({
         <ProductCardInfoProductName>
           {product.path ? (
             <Link
-              className="focus:outline focus:outline-4 focus:outline-offset-2 focus:outline-blue-primary/20 focus:ring-0"
+              className="focus:outline-blue-primary/20 focus:outline focus:outline-4 focus:outline-offset-2 focus:ring-0"
               href={product.path}
             >
               <span aria-hidden="true" className="absolute inset-0 bottom-20" />
@@ -131,7 +138,7 @@ export const ProductCard = ({
             <p
               aria-describedby={summaryId}
               className={cn(
-                'flex flex-nowrap text-blue-primary',
+                'text-blue-primary flex flex-nowrap',
                 product.reviewSummary.numberOfReviews === 0 && 'text-gray-400',
               )}
             >

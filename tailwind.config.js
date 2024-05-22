@@ -42,8 +42,6 @@ const config = {
       fontFamily: {
         sans: ['var(--font-ibm-plex-sans)'],
         display: ['var(--font-mortend)'],
-        outline: ['var(--font-mortend-outline)'],
-        akira: ['var(--font-akira)'],
         header: ['var(--font-awesome-serif)'],
       },
       keyframes: {

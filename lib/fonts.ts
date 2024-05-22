@@ -1,5 +1,5 @@
-import { IBM_Plex_Sans } from 'next/font/google'
-import localFont from 'next/font/local'
+import { IBM_Plex_Sans } from 'next/font/google';
+import localFont from 'next/font/local';
 
 export const Mortend = localFont({
   src: [
@@ -15,35 +15,13 @@ export const Mortend = localFont({
     },
   ],
   variable: '--font-mortend',
-})
-
-export const MortendOutline = localFont({
-  src: [
-    {
-      path: '../public/fonts/Mortend-ExtraBoldOutline.woff2',
-      weight: '800',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-mortend-outline',
-})
+});
 
 export const IBMPlexSans = IBM_Plex_Sans({
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-ibm-plex-sans',
-})
-
-export const Akira = localFont({
-  src: [
-    {
-      path: '../public/fonts/AkiraExpanded-Bold.woff2',
-      weight: '800',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-akira',
-})
+});
 
 export const AwesomeSerif = localFont({
   src: [
@@ -57,4 +35,4 @@ export const AwesomeSerif = localFont({
     },
   ],
   variable: '--font-awesome-serif',
-})
+});
