@@ -15,25 +15,21 @@ export default async function Home() {
       alt: 'Talley & Twine',
       src: '/images/talley-and-twine.svg',
       width: 160,
-      height: 24,
+    },
+    {
+      alt: 'Dresscode',
+      src: '/images/dresscode.svg',
+      width: 100,
     },
     {
       alt: 'Talley & Twine',
       src: '/images/talley-and-twine.svg',
       width: 160,
-      height: 24,
     },
     {
       alt: 'Talley & Twine',
       src: '/images/talley-and-twine.svg',
       width: 160,
-      height: 24,
-    },
-    {
-      alt: 'Talley & Twine',
-      src: '/images/talley-and-twine.svg',
-      width: 160,
-      height: 24,
     },
   ];
 
@@ -41,17 +37,18 @@ export default async function Home() {
     <>
       <Hero />
 
-      <div className="flex h-36 w-full divide-x divide-black bg-white">
+      <div className="grid h-auto w-full grid-cols-2 gap-[1px] bg-black md:h-36 md:grid-cols-4">
         {logos.map((logo, index) => (
-          <div className="w-full place-content-center p-8 ">
+          <div className="w-full place-content-center bg-white p-8 ">
+            <div className="w-full [&>div]:![position:unset]"></div>
             <Image
               key={index}
               alt={logo.alt}
-              className="mx-auto object-contain"
-              width={logo.width}
-              height={logo.height}
+              className="!relative mx-auto !h-[unset] !w-full object-contain"
+              layout="fill"
               priority={true}
               src={logo.src}
+              style={{ maxWidth: logo.width }}
             />
           </div>
         ))}

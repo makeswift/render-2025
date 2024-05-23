@@ -49,17 +49,14 @@ export const BaseQuickSearch = ({
   return (
     <Sheet onOpenChange={setOpen} open={open}>
       <SheetTrigger asChild>
-        <Button
-          aria-label="Open search popup"
-          className="border-0 bg-transparent p-3 text-black hover:bg-transparent hover:text-blue-primary focus:text-blue-primary"
-        >
+        <button aria-label="Open search popup" className="p-3 text-black">
           <Search />
-        </Button>
+        </button>
       </SheetTrigger>
       <SheetOverlay className="bg-transparent backdrop-blur-none">
         <SheetContent
           className={cn(
-            'flex min-h-[92px] flex-col px-6 py-4 data-[state=closed]:duration-0 data-[state=open]:duration-0 md:px-10 md:py-4 lg:px-12',
+            'flex min-h-16 flex-col border border-black px-4 py-4 data-[state=closed]:duration-0 data-[state=open]:duration-0 md:min-h-20 md:px-8 md:py-5 lg:min-h-24 lg:px-10',
             searchResults && searchResults.products.length > 0 && 'h-full lg:h-3/4',
           )}
           side="top"
@@ -84,22 +81,29 @@ export const BaseQuickSearch = ({
                     role="combobox"
                     value={query}
                   >
-                    <InputIcon className="start-3 peer-hover:text-blue-primary peer-focus:text-blue-primary">
+                    <InputIcon className="peer-hover:text-blue-primary peer-focus:text-blue-primary start-3">
                       <Search />
                     </InputIcon>
                     {query.length > 0 && !pending && (
                       <Button
                         aria-label="Clear search"
-                        className="absolute end-1.5 top-1/2 w-auto -translate-y-1/2 border-0 bg-transparent p-1.5 text-black hover:bg-transparent hover:text-blue-primary focus:text-blue-primary peer-hover:text-blue-primary peer-focus:text-blue-primary"
+                        variant="subtle"
+                        className="absolute end-1 top-1/2 w-auto -translate-y-1/2 border-0 bg-transparent !p-3 text-black hover:bg-transparent"
                         onClick={handleClearQuery}
                         type="button"
                       >
-                        <X />
+                        <X size={20} strokeWidth="2" absoluteStrokeWidth />
                       </Button>
                     )}
                     {pending && (
-                      <InputIcon className="end-3 text-blue-primary">
-                        <Spinner aria-hidden="true" className="animate-spin" />
+                      <InputIcon className="end-1 p-3">
+                        <Spinner
+                          size={20}
+                          strokeWidth="2"
+                          absoluteStrokeWidth
+                          aria-hidden="true"
+                          className="animate-spin"
+                        />
                         <span className="sr-only">Processing...</span>
                       </InputIcon>
                     )}
@@ -110,10 +114,10 @@ export const BaseQuickSearch = ({
             <SheetClose asChild>
               <Button
                 aria-label="Close search popup"
-                className="w-auto justify-self-end border-0 bg-transparent p-2.5 text-black hover:bg-transparent hover:text-blue-primary focus:text-blue-primary peer-hover:text-blue-primary peer-focus:text-blue-primary"
+                variant="subtle"
+                className="w-auto justify-self-end border-0 bg-transparent !p-0 text-xs text-black hover:bg-transparent"
               >
-                <small className="me-2 hidden text-base md:inline-flex">Close</small>
-                <X />
+                Close
               </Button>
             </SheetClose>
           </div>

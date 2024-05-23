@@ -5,7 +5,7 @@ import { ComponentPropsWithRef, createContext, ElementRef, forwardRef, useContex
 import { cn } from '~/lib/utils';
 
 const inputVariants = cva(
-  'peer focus:ring-blue-primary/20 w-full border-2 border-gray-200 py-2.5 px-4 text-base placeholder:text-gray-500 focus:border-blue-primary focus:outline-none focus:ring-4 hover:border-blue-primary disabled:bg-gray-100 disabled:hover:border-gray-200',
+  'peer w-full !border border-black/25 py-2.5 px-4 text-base placeholder:text-gray-500 focus:border-blue focus:outline-none hover:border-black/50 disabled:bg-gray-100 disabled:hover:border-gray-200',
   {
     variants: {
       variant: {

@@ -73,10 +73,7 @@ const Slideshow = forwardRef<ElementRef<'section'>, SlideshowProps>(
             <section
               aria-label="Interactive slide show"
               aria-roledescription="carousel"
-              className={cn(
-                'relative -mx-6 overflow-hidden sm:-mx-10 md:-mx-12 lg:mx-0',
-                className,
-              )}
+              className={cn('relative overflow-hidden', className)}
               onBlur={() => setIsHoverPaused(false)}
               onFocus={() => setIsHoverPaused(true)}
               onMouseEnter={() => setIsHoverPaused(true)}
@@ -139,9 +136,12 @@ const SlideshowSlide = forwardRef<ElementRef<'li'>, ComponentPropsWithRef<'li'>>
 
     return (
       <li
-        aria-label={`${thisSlideIndex + 1} of ${totalSlides}`}
+        aria-label={`${thisSlideIndex + 1} / ${totalSlides}`}
         aria-roledescription="slide"
-        className={cn('min-w-0 shrink-0 grow-0 basis-full', className)}
+        className={cn(
+          'relative flex min-h-[480px] min-w-0 shrink-0 grow-0 basis-full flex-col lg:min-h-[600px] xl:min-h-[800px]',
+          className,
+        )}
         // @ts-expect-error https://github.com/DefinitelyTyped/DefinitelyTyped/pull/60822
         inert={thisSlideIndex === activeSlideIndex ? null : 'true'}
         ref={ref}
@@ -165,7 +165,10 @@ const SlideshowControls = forwardRef<ElementRef<'div'>, ComponentPropsWithRef<'d
 
     return (
       <div
-        className={cn('absolute bottom-12 start-12 flex items-center gap-4', className)}
+        className={cn(
+          'absolute bottom-3 start-3 flex items-center gap-1 stroke-white text-white sm:bottom-6 sm:end-6 sm:start-auto md:bottom-10 md:end-10',
+          className,
+        )}
         ref={ref}
         {...props}
       >
@@ -197,7 +200,7 @@ const SlideshowAutoplayControl = forwardRef<ElementRef<'button'>, SlideshowAutop
       <button
         aria-label={isPaused ? 'Play slideshow' : 'Pause slideshow'}
         className={cn(
-          'inline-flex h-12 w-12 items-center justify-center focus:outline-none focus:ring-4 focus:ring-blue-primary/20',
+          'inline-flex h-10 w-10 items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-blue',
           className,
         )}
         onClick={(e) => {
@@ -232,7 +235,7 @@ const SlideshowNextIndicator = forwardRef<ElementRef<'button'>, ComponentPropsWi
         aria-controls="slideshow-slides"
         aria-label="Next slide"
         className={cn(
-          'inline-flex h-12 w-12 items-center justify-center focus:outline-none focus:ring-4 focus:ring-blue-primary/20',
+          'inline-flex h-10 w-10 items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-blue',
           className,
         )}
         onClick={scrollNext}
@@ -263,7 +266,7 @@ const SlideshowPreviousIndicator = forwardRef<
       aria-controls="slideshow-slides"
       aria-label="Previous slide"
       className={cn(
-        'inline-flex h-12 w-12 items-center justify-center focus:outline-none focus:ring-4 focus:ring-blue-primary/20',
+        'inline-flex h-10 w-10 items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-blue',
         className,
       )}
       onClick={scrollPrev}
@@ -303,9 +306,9 @@ const SlideshowPagination = forwardRef<ElementRef<'span'>, SlideshowPaginationPr
       }
 
       return (
-        <>
-          {activeSlide} of {totalSlides}
-        </>
+        <div className="px-1">
+          {activeSlide} / {totalSlides}
+        </div>
       );
     };
 
@@ -334,7 +337,7 @@ const SlideshowPagination = forwardRef<ElementRef<'span'>, SlideshowPaginationPr
       <span
         aria-atomic="false"
         aria-live={isPaused ? 'polite' : 'off'}
-        className={cn('font-semibold', className)}
+        className={cn('font-medium', className)}
         ref={ref}
         {...props}
       >

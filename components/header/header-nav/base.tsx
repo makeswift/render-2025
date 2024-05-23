@@ -33,14 +33,14 @@ export const BaseHeaderNav = ({
           <NavigationMenuItem className={cn(inCollapsedNav && 'w-full')} key={category.path}>
             {category.children.length > 0 ? (
               <>
-                <NavigationMenuTrigger className="gap-0 p-0">
+                <NavigationMenuTrigger className="gap-1">
                   <>
                     <NavigationMenuLink asChild>
                       <Link className="grow" href={category.path}>
                         {category.name}
                       </Link>
                     </NavigationMenuLink>
-                    <span className={cn(inCollapsedNav && 'p-3')}>
+                    <span className={cn(inCollapsedNav && 'p-3 lg:p-0 lg:pr-3')}>
                       <ChevronDown
                         size={16}
                         strokeWidth={2.5}
@@ -55,20 +55,26 @@ export const BaseHeaderNav = ({
                 </NavigationMenuTrigger>
                 <NavigationMenuContent
                   className={cn(
-                    !inCollapsedNav && 'mx-auto flex w-[700px] flex-row gap-20',
+                    !inCollapsedNav && 'mx-auto flex max-w-3xl flex-row gap-20',
                     inCollapsedNav && 'ps-3',
                   )}
                 >
                   {category.children.map((childCategory1) => (
                     <ul className={cn(inCollapsedNav && 'pb-4')} key={childCategory1.entityId}>
                       <NavigationMenuItem>
-                        <NavigationMenuLink href={childCategory1.path}>
+                        <NavigationMenuLink
+                          href={childCategory1.path}
+                          className="font-display text-sm uppercase"
+                        >
                           {childCategory1.name}
                         </NavigationMenuLink>
                       </NavigationMenuItem>
                       {childCategory1.children.map((childCategory2) => (
                         <NavigationMenuItem key={childCategory2.entityId}>
-                          <NavigationMenuLink className="font-normal" href={childCategory2.path}>
+                          <NavigationMenuLink
+                            className="py-2 font-sans !text-base font-normal normal-case lg:!text-sm"
+                            href={childCategory2.path}
+                          >
                             {childCategory2.name}
                           </NavigationMenuLink>
                         </NavigationMenuItem>
@@ -87,7 +93,7 @@ export const BaseHeaderNav = ({
       </NavigationMenuList>
       <NavigationMenuList
         className={cn(
-          'border-t border-gray-200 pt-6 lg:hidden',
+          'mt-4 border-t border-black/20 pt-4 lg:hidden',
           !inCollapsedNav && 'hidden',
           inCollapsedNav && 'flex-col items-start',
         )}

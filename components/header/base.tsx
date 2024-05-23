@@ -40,13 +40,15 @@ export const BasePagesHeader = ({
   return (
     <header>
       <NavigationMenu>
-        <NavigationMenuLink asChild className="flex-1 px-0">
-          <Link href="/">
-            <StoreLogo settings={storeSettings} />
-          </Link>
-        </NavigationMenuLink>
+        <div className="flex-1">
+          <NavigationMenuLink asChild className="inline-block !p-0">
+            <Link href="/">
+              <StoreLogo settings={storeSettings} />
+            </Link>
+          </NavigationMenuLink>
+        </div>
 
-        {nav}
+        <div className="hidden lg:block">{nav}</div>
 
         <div className="flex flex-1 justify-end">
           <NavigationMenuList>
@@ -55,7 +57,7 @@ export const BasePagesHeader = ({
             <NavigationMenuItem className="hidden lg:flex">
               {isLoggedIn ? (
                 <Button
-                  className="p-3 text-black hover:bg-transparent"
+                  className="!p-3 text-black hover:bg-transparent"
                   onClick={() => signOut()}
                   type="button"
                   variant="subtle"
@@ -63,7 +65,7 @@ export const BasePagesHeader = ({
                   <LogOut />
                 </Button>
               ) : (
-                <NavigationMenuLink asChild>
+                <NavigationMenuLink asChild className="!p-3">
                   <Link aria-label="Login" href="/login">
                     <User />
                   </Link>
@@ -72,7 +74,7 @@ export const BasePagesHeader = ({
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuLink asChild>
+              <NavigationMenuLink asChild className="!p-3">
                 <Link className="relative" href="/cart">
                   {cart}
                 </Link>
@@ -80,7 +82,7 @@ export const BasePagesHeader = ({
             </NavigationMenuItem>
           </NavigationMenuList>
 
-          <NavigationMenuToggle className="ms-2 lg:hidden" />
+          <NavigationMenuToggle className="p-3 lg:hidden" />
         </div>
 
         <NavigationMenuCollapsed>{collapsedNav}</NavigationMenuCollapsed>

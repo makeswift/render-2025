@@ -49,7 +49,7 @@ ProductCardBadge.displayName = 'ProductCardBadge';
 const ProductCardInfo = forwardRef<ElementRef<'div'>, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...props }, ref) => {
     return (
-      <div className={cn('flex flex-1 flex-col gap-1', className)} ref={ref} {...props}>
+      <div className={cn('flex flex-1 flex-col gap-1 pr-6', className)} ref={ref} {...props}>
         {children}
       </div>
     );
@@ -73,7 +73,14 @@ ProductCardInfoBrandName.displayName = 'ProductCardInfoBrandName';
 const ProductCardInfoProductName = forwardRef<ElementRef<'h3'>, ComponentPropsWithRef<'h3'>>(
   ({ children, className, ...props }, ref) => {
     return (
-      <h3 className={cn('text-xl font-bold lg:text-2xl', className)} ref={ref} {...props}>
+      <h3
+        className={cn(
+          'font-display text-base font-bold uppercase !leading-tight lg:text-lg',
+          className,
+        )}
+        ref={ref}
+        {...props}
+      >
         {children}
       </h3>
     );
