@@ -46,10 +46,7 @@ export const ProductCardCarousel = ({
   return (
     <Carousel aria-labelledby="title">
       <div className="flex items-center justify-between">
-        <h2
-          className="font-header text-2xl font-bold uppercase tracking-wide md:text-3xl lg:text-4xl"
-          id="title"
-        >
+        <h2 className="font-display text-lg font-bold uppercase md:text-xl lg:text-2xl" id="title">
           {title}
         </h2>
         <span className="no-wrap flex">

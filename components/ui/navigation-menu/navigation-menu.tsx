@@ -51,7 +51,7 @@ const NavigationMenu = forwardRef<
           <div className="relative">
             <div
               className={cn(
-                'group flex min-h-16 items-center gap-4 overflow-hidden border border-b-0 border-black bg-gold px-4 pr-2 font-display text-xs uppercase sm:px-6 sm:pr-4 md:min-h-20 lg:min-h-24 lg:px-8',
+                'group flex min-h-16 items-center gap-4 overflow-hidden border border-b-0 border-black bg-pink px-4 pr-2 font-display text-xs uppercase sm:px-6 sm:pr-4 md:min-h-20 lg:min-h-24 lg:px-8',
                 className,
               )}
               {...props}

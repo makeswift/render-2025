@@ -75,7 +75,7 @@ const ProductCardInfoProductName = forwardRef<ElementRef<'h3'>, ComponentPropsWi
     return (
       <h3
         className={cn(
-          'font-display text-base font-bold uppercase !leading-tight lg:text-lg',
+          'font-display text-sm font-bold uppercase !leading-tight lg:text-base',
           className,
         )}
         ref={ref}

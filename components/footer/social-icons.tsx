@@ -25,23 +25,23 @@ const socialIconNames = [
 const SocialIcon = ({ name }: { name: string }) => {
   switch (name) {
     case 'Facebook':
-      return <SiFacebook title="Facebook" />;
+      return <SiFacebook size={20} title="Facebook" />;
 
     case 'Twitter':
     case 'X':
-      return <SiX title="X" />;
+      return <SiX size={20} title="X" />;
 
     case 'Pinterest':
-      return <SiPinterest title="Pinterest" />;
+      return <SiPinterest size={20} title="Pinterest" />;
 
     case 'Instagram':
-      return <SiInstagram title="Instagram" />;
+      return <SiInstagram size={20} title="Instagram" />;
 
     case 'LinkedIn':
-      return <SiLinkedin title="LinkedIn" />;
+      return <SiLinkedin size={20} title="LinkedIn" />;
 
     case 'YouTube':
-      return <SiYoutube title="YouTube" />;
+      return <SiYoutube size={20} title="YouTube" />;
 
     default:
       return null;
@@ -63,7 +63,7 @@ export const SocialIcons = ({ storeSettings }: Props) => {
 
   return (
     <FooterNav aria-label="Social media links" className="block">
-      <FooterNavGroupList className="flex-row gap-6">
+      <FooterNavGroupList className="flex-row gap-4">
         {socialMediaLinks.map((link) => {
           if (!socialIconNames.includes(link.name)) {
             return null;

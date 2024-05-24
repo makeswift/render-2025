@@ -5,7 +5,7 @@ import { cn } from '~/lib/utils';
 
 const Footer = forwardRef<ElementRef<'footer'>, ComponentPropsWithRef<'footer'>>(
   ({ children, className, ...props }, ref) => (
-    <footer className={cn('2xl:container 2xl:mx-auto', className)} ref={ref} {...props}>
+    <footer className={cn('bg-black text-white', className)} ref={ref} {...props}>
       {children}
     </footer>
   ),
@@ -17,7 +17,7 @@ const FooterSection = forwardRef<ElementRef<'section'>, ComponentPropsWithRef<'d
   ({ children, className, ...props }, ref) => (
     <section
       className={cn(
-        'flex flex-col gap-4 border-t border-gray-200 px-6 py-8 2xl:container sm:flex-row sm:px-10 lg:px-12 2xl:mx-auto 2xl:px-0',
+        'flex flex-col gap-x-10 gap-y-10 px-5 py-8 2xl:container sm:flex-row sm:px-6 md:py-10 lg:px-10 2xl:mx-auto 2xl:px-0',
         className,
       )}
       {...props}
@@ -47,7 +47,7 @@ FooterNav.displayName = 'FooterNav';
 
 const FooterNavGroupList = forwardRef<ElementRef<'ul'>, ComponentPropsWithRef<'ul'>>(
   ({ children, className, ...props }, ref) => (
-    <ul className={cn('flex flex-col gap-4', className)} ref={ref} {...props}>
+    <ul className={cn('flex flex-col gap-3', className)} ref={ref} {...props}>
       {children}
     </ul>
   ),
@@ -65,7 +65,10 @@ const FooterNavLink = forwardRef<ElementRef<'li'>, FooterNavLinkProps>(
 
     return (
       <li ref={ref}>
-        <Comp className={cn(className)} {...props}>
+        <Comp
+          className={cn('text-sm opacity-70 transition-opacity hover:opacity-100', className)}
+          {...props}
+        >
           {children}
         </Comp>
       </li>

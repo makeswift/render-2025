@@ -7,7 +7,7 @@ export const Badge = forwardRef<ElementRef<'span'>, ComponentPropsWithRef<'span'
     return (
       <span
         className={cn(
-          'absolute -end-1 top-0.5 h-6 w-6 place-content-center rounded-full border-2 border-gold bg-green text-center font-sans text-[10px] font-semibold leading-none text-white',
+          'absolute end-0 top-0.5 h-5 w-5 place-content-center rounded-full bg-black text-center font-sans text-[10px] font-semibold text-white ring-2 ring-pink',
           className,
         )}
         ref={ref}
