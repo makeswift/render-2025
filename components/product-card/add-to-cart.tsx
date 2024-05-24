@@ -9,7 +9,7 @@ export const AddToCart = ({ disabled = false }: { disabled?: boolean }) => {
   const { pending } = useFormStatus();
 
   return (
-    <Button className="mt-2" disabled={disabled || pending} type="submit">
+    <Button disabled={disabled || pending} type="submit">
       {pending ? (
         <>
           <Spinner aria-hidden="true" className="animate-spin" />

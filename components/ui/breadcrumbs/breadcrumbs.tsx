@@ -7,7 +7,10 @@ const Breadcrumbs = forwardRef<ElementRef<'nav'>, ComponentPropsWithRef<'ul'>>(
   ({ children, className, ...props }, ref) => {
     return (
       <nav aria-label="Breadcrumb" ref={ref}>
-        <ul className={cn('flex flex-wrap items-center', className)} {...props}>
+        <ul
+          className={cn('flex flex-wrap items-center px-3 py-4 sm:px-6 lg:px-8', className)}
+          {...props}
+        >
           {children}
         </ul>
       </nav>
@@ -27,11 +30,11 @@ const BreadcrumbItem = forwardRef<ElementRef<'li'>, BreadcrumbItemProps>(
     const Comp = asChild ? Slot : 'a';
 
     return (
-      <li className={cn('flex items-center text-xs font-semibold text-black')} ref={ref}>
+      <li className={cn('flex items-center text-sm font-semibold text-black')} ref={ref}>
         <Comp
           aria-current={isActive ? `page` : undefined}
           className={cn(
-            'p-1 font-semibold hover:text-blue-primary focus:outline-none focus:ring-4 focus:ring-blue-primary/20',
+            'p-1 font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-blue',
             isActive && 'cursor-default font-extrabold hover:text-black',
             className,
           )}

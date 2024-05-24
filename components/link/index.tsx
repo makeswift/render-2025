@@ -13,10 +13,7 @@ export const Link = forwardRef<ElementRef<'a'>, LinkType>(
   ({ href, prefetch = false, children, className, ...rest }, ref) => {
     return (
       <NextLink
-        className={cn(
-          ' hover:text-blue-primary focus:outline-none focus:ring-4 focus:ring-blue-primary/20',
-          className,
-        )}
+        className={cn('focus:outline-none focus-visible:ring-2 focus-visible:ring-blue', className)}
         href={href}
         prefetch={prefetch}
         ref={ref}

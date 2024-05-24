@@ -18,7 +18,7 @@ interface Props {
 }
 
 export const Breadcrumbs = ({ breadcrumbs, category }: Props) => (
-  <ComponentsBreadcrumbs className="py-4">
+  <ComponentsBreadcrumbs>
     {breadcrumbs.map(({ name, entityId, path }, index) => {
       if (!path || breadcrumbs.length - 1 === index) {
         return (

@@ -95,7 +95,7 @@ export const ProductCard = ({
       <ProductCardImage>
         <div
           className={cn(
-            'relative flex-auto',
+            'relative w-full',
             {
               'aspect-square': imageSize === 'square',
               'aspect-[4/5]': imageSize === 'tall',
@@ -118,12 +118,12 @@ export const ProductCard = ({
           )}
         </div>
       </ProductCardImage>
-      <ProductCardInfo className={cn(showCart && 'justify-end')}>
+      <ProductCardInfo className={cn(showCart && 'mb-4 flex-1')}>
         {product.brand && <ProductCardInfoBrandName>{product.brand.name}</ProductCardInfoBrandName>}
         <ProductCardInfoProductName>
           {product.path ? (
             <Link
-              className="focus:outline-blue-primary/20 focus:outline focus:outline-4 focus:outline-offset-2 focus:ring-0"
+              className="focus:outline-none focus-visible:outline-2 focus-visible:outline-blue focus-visible:ring-0"
               href={product.path}
             >
               <span aria-hidden="true" className="absolute inset-0 bottom-20" />
@@ -134,7 +134,7 @@ export const ProductCard = ({
           )}
         </ProductCardInfoProductName>
         {product.reviewSummary && (
-          <div className="flex items-center gap-3">
+          <div className="flex hidden items-center gap-3">
             <p
               aria-describedby={summaryId}
               className={cn(
@@ -158,7 +158,7 @@ export const ProductCard = ({
             </div>
           </div>
         )}
-        <div className="flex flex-wrap items-end justify-between pt-2">
+        <div className="flex flex-wrap items-end justify-between">
           <ProductCardInfoPrice>
             <Pricing prices={product.prices} />
           </ProductCardInfoPrice>

@@ -6,7 +6,7 @@ const ProductCard = forwardRef<ElementRef<'div'>, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...props }, ref) => {
     return (
       <div
-        className={cn('group relative flex flex-col overflow-visible', className)}
+        className={cn('group relative flex flex-col items-start overflow-visible', className)}
         ref={ref}
         {...props}
       >
@@ -21,7 +21,7 @@ ProductCard.displayName = 'ProductCard';
 const ProductCardImage = forwardRef<ElementRef<'div'>, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...props }, ref) => {
     return (
-      <div className={cn('relative flex justify-center pb-3', className)} ref={ref} {...props}>
+      <div className={cn('w-full', className)} ref={ref} {...props}>
         {children}
       </div>
     );
@@ -92,7 +92,7 @@ ProductCardInfoProductName.displayName = 'ProductCardInfoProductName';
 const ProductCardInfoPrice = forwardRef<ElementRef<'div'>, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...props }, ref) => {
     return (
-      <div className={cn('pt-2 text-base', className)} ref={ref} {...props}>
+      <div className={cn('text-base', className)} ref={ref} {...props}>
         {children}
       </div>
     );

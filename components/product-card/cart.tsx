@@ -26,11 +26,7 @@ export const Cart = ({ product }: { product: Partial<Product> }) => {
 
   return Array.isArray(product.productOptions) && product.productOptions.length > 0 ? (
     <Button asChild>
-      <Link
-        className="mt-2 hover:text-white"
-        href={`${pathname ?? ''}?${newSearchParams.toString()}`}
-        scroll={false}
-      >
+      <Link href={`${pathname ?? ''}?${newSearchParams.toString()}`} scroll={false}>
         Quick add
       </Link>
     </Button>
@@ -51,7 +47,7 @@ export const Cart = ({ product }: { product: Partial<Product> }) => {
             <div className="flex items-center gap-3">
               <span>
                 {quantity} {quantity === 1 ? 'Item' : 'Items'} added to{' '}
-                <Link className="font-semibold text-blue-primary" href="/cart" prefetch={false}>
+                <Link className="text-blue-primary font-semibold" href="/cart" prefetch={false}>
                   your cart
                 </Link>
               </span>

@@ -49,14 +49,14 @@ export const BaseQuickSearch = ({
   return (
     <Sheet onOpenChange={setOpen} open={open}>
       <SheetTrigger asChild>
-        <button aria-label="Open search popup" className="p-3 text-black">
+        <Button aria-label="Open search popup" variant="subtle" className="!p-3 text-black">
           <Search />
-        </button>
+        </Button>
       </SheetTrigger>
       <SheetOverlay className="bg-transparent backdrop-blur-none">
         <SheetContent
           className={cn(
-            'flex min-h-16 flex-col border border-black px-4 py-4 data-[state=closed]:duration-0 data-[state=open]:duration-0 md:min-h-20 md:px-8 md:py-5 lg:min-h-24 lg:px-10',
+            'flex min-h-16 flex-col border border-black px-4 py-4 shadow-none data-[state=closed]:duration-0 data-[state=open]:duration-0 md:min-h-20 md:px-8 md:py-5 lg:min-h-[97px] lg:px-10',
             searchResults && searchResults.products.length > 0 && 'h-full lg:h-3/4',
           )}
           side="top"
