@@ -40,7 +40,7 @@ export const productFormSubmit = async (data: ProductFormData) => {
       <div className="flex items-center gap-3">
         <span>
           {quantity} {quantity === 1 ? 'Item' : 'Items'} added to{' '}
-          <Link className="font-semibold text-blue-primary hover:text-blue-secondary" href="/cart">
+          <Link className="text-blue-primary hover:text-blue-secondary font-semibold" href="/cart">
             your cart
           </Link>
         </span>
@@ -88,16 +88,14 @@ export const ProductForm = ({ product }: { product: Product }) => {
 
         <QuantityField />
 
-        <div className="@md:flex-row mt-4 flex flex-col gap-4">
+        <div className="flex w-full gap-x-2">
           <AddToCart disabled={product.availabilityV2.status === 'Unavailable'} />
 
           {/* NOT IMPLEMENTED YET */}
-          <div className="w-full">
-            <Button disabled type="submit" variant="secondary">
-              <Heart aria-hidden="true" className="mx-2" />
-              <span>Save to wishlist</span>
-            </Button>
-          </div>
+          <Button type="submit" variant="secondary" className="group !px-3">
+            <Heart aria-hidden="true" size={20} strokeWidth={2} absoluteStrokeWidth />
+            <span className="sr-only">Save to wishlist</span>
+          </Button>
         </div>
       </form>
     </FormProvider>

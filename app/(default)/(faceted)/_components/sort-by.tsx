@@ -21,9 +21,9 @@ export function SortBy() {
   return (
     <Select
       aria-label="Sort by:"
-      className="flex-1 sm:flex-auto"
       onValueChange={onSort}
       value={value}
+      className="text-[11px] sm:text-xs"
     >
       <SelectContent>
         <SelectItem value="featured">Featured items</SelectItem>

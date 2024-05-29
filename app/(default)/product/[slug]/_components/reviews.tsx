@@ -17,35 +17,35 @@ export const Reviews = async ({ productId }: Props) => {
 
   return (
     <>
-      <h3 className="mb-4 mt-8 text-xl font-bold">
+      <h3 className="mb-4 mt-8 font-display text-xs font-bold uppercase md:text-sm">
         Reviews
         {reviews.length > 0 && (
-          <span className="ms-2 ps-1 text-gray-500">
+          <span className="ms-2 ps-1 font-normal opacity-50">
             <span className="sr-only">Count:</span>
             {reviews.length}
           </span>
         )}
       </h3>
 
-      <ul className="lg:grid lg:grid-cols-2 lg:gap-8">
+      <ul className="space-y-4">
         {reviews.length === 0 ? (
           <p className="pb-6 pt-1">This product hasn't been reviewed yet.</p>
         ) : (
           reviews.map((review) => {
             return (
               <li key={review.entityId}>
-                <p className="mb-3 flex flex-nowrap text-blue-primary">
+                <p className="text-blue-primary mb-3 flex flex-nowrap">
                   <Rating value={review.rating} />
                   <span className="sr-only">Rating: ${review.rating} out of 5 stars</span>
                 </p>
-                <h4 className="text-base font-semibold">{review.title}</h4>
-                <p className="mb-2 text-gray-500">
+                <h4 className="text-base font-semibold leading-relaxed">{review.title}</h4>
+                <p className="mb-2 text-sm leading-relaxed opacity-50">
                   Posted by {review.author.name} on{' '}
                   {new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(
                     new Date(review.createdAt.utc),
                   )}
                 </p>
-                <p className="mb-6">{review.text}</p>
+                <p className="leading-relaxed">{review.text}</p>
               </li>
             );
           })

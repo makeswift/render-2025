@@ -6,7 +6,7 @@ import { ComponentPropsWithRef, ElementRef, forwardRef } from 'react';
 import { cn } from '~/lib/utils';
 
 const selectVariants = cva(
-  'focus-visible:border-blue group flex h-10 w-full items-center justify-between border border-black/25 px-3 md:px-4 pr-2 py-2 md:py-3 text-sm gap-x-2 md:text-base text-black hover:border-black/50 focus:border-blue focus:outline-none disabled:bg-gray-100 disabled:hover:border-gray-200 data-[placeholder]:text-gray-500',
+  'group w-auto inline-flex items-center justify-center relative overflow-hidden border-2 font-display font-bold uppercase leading-none text-black transition duration-150 px-3 py-2.5 text-xs md:px-4 md:pr-3 focus:ring-0 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-blue group gap-x-2 bg-transparent text-black border-2 border-black hover:border-pink disabled:text-gray-400 disabled:hover:bg-transparent disabled:hover:border-gray-400 disabled:hover:text-gray-400',
   {
     variants: {
       variant: {
@@ -42,12 +42,7 @@ const Select = forwardRef<ElementRef<SelectTriggerType>, SelectProps>(
           <SelectPrimitive.Value placeholder={placeholder} />
           {/* TODO: For the sake of moving fast we are leaving this in, but in the future we need to figure out how enable custom icons */}
           <SelectPrimitive.Icon>
-            <ChevronDown
-              size={20}
-              strokeWidth={2}
-              absoluteStrokeWidth
-              className="group-focus:text-blue-primary group-enabled:group-hover:text-blue-primary inline"
-            />
+            <ChevronDown size={16} strokeWidth={2} absoluteStrokeWidth />
           </SelectPrimitive.Icon>
         </SelectPrimitive.Trigger>
 
@@ -94,7 +89,7 @@ const SelectItem = forwardRef<ElementRef<SelectItemType>, ComponentPropsWithRef<
       <SelectPrimitive.Item
         {...props}
         className={cn(
-          'relative flex w-full cursor-pointer select-none items-center justify-between overflow-visible px-4 py-2 text-black/50 outline-none transition-colors hover:bg-blue/20 hover:text-black data-[disabled]:pointer-events-none data-[state="checked"]:bg-blue data-[state="checked"]:text-black data-[disabled]:opacity-50',
+          'relative flex w-full cursor-pointer select-none items-center justify-between overflow-visible px-4 py-2 text-black/50 outline-none transition-colors hover:bg-pink/20 hover:text-black data-[disabled]:pointer-events-none data-[state="checked"]:bg-pink data-[state="checked"]:text-black data-[disabled]:opacity-50',
           className,
         )}
         ref={ref}
@@ -102,7 +97,7 @@ const SelectItem = forwardRef<ElementRef<SelectItemType>, ComponentPropsWithRef<
         <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
         {/* TODO: For the sake of moving fast we are leaving this in, but in the future we need to figure out how enable custom indicators */}
         <SelectPrimitive.ItemIndicator>
-          <Check size={20} strokeWidth={2} absoluteStrokeWidth />
+          <Check size={16} strokeWidth={2} absoluteStrokeWidth />
         </SelectPrimitive.ItemIndicator>
       </SelectPrimitive.Item>
     );

@@ -12,9 +12,9 @@ export default async function Home() {
 
   const logos = [
     {
-      alt: 'Talley & Twine',
-      src: '/images/talley-and-twine.svg',
-      width: 160,
+      alt: 'Hardwear',
+      src: '/images/hardwear.svg',
+      width: 120,
     },
     {
       alt: 'Dresscode',
@@ -22,9 +22,9 @@ export default async function Home() {
       width: 100,
     },
     {
-      alt: 'Talley & Twine',
-      src: '/images/talley-and-twine.svg',
-      width: 160,
+      alt: 'Fuzzies',
+      src: '/images/fuzzies.svg',
+      width: 124,
     },
     {
       alt: 'Talley & Twine',

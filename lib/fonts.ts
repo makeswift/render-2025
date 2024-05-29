@@ -15,6 +15,7 @@ export const Mortend = localFont({
     },
   ],
   variable: '--font-mortend',
+  declarations: [{ prop: 'ascent-override', value: '90%' }],
 });
 
 export const IBMPlexSans = IBM_Plex_Sans({

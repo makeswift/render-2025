@@ -56,19 +56,19 @@ export default async function Category({ params, searchParams }: Props) {
     <div>
       <Breadcrumbs breadcrumbs={category.breadcrumbs.items} category={category.name} />
 
-      <div className="flex flex-col items-start justify-between border-b border-black px-4 pb-4 sm:px-6 md:flex-row md:items-center lg:px-8 lg:pb-5">
-        <h1 className="mb-3 font-display text-xl font-bold uppercase md:mb-0 md:text-2xl lg:text-3xl">
-          {category.name}
-        </h1>
-
-        <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row">
-          <div className="flex w-full flex-1 items-center gap-4 sm:w-auto md:justify-end md:gap-6">
-            <div className="shrink-0 text-xs sm:text-sm">
-              {/* TODO: Plural vs. singular items */}
-              {productsCollection.collectionInfo?.totalItems} items
-            </div>
-            <SortBy />
+      <div className="flex w-full flex-col flex-wrap items-center gap-4 border-b border-black px-4 pb-4 sm:px-6 md:flex-row lg:px-8 lg:pb-5">
+        <div className="flex w-full flex-1 items-center justify-between md:w-auto">
+          <h1 className="font-display text-xl font-bold uppercase md:mb-0 md:text-2xl lg:text-3xl">
+            {category.name}
+          </h1>
+          <div className="flex-1 shrink-0 text-right text-sm">
+            {/* TODO: Plural vs. singular items */}
+            {productsCollection.collectionInfo?.totalItems} items
           </div>
+        </div>
+
+        <div className="flex w-full items-center gap-3 md:w-auto">
+          <SortBy />
           <MobileSideNav>
             <FacetedSearch
               facets={search.facets.items}

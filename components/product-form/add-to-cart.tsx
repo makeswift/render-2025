@@ -10,7 +10,7 @@ export const AddToCart = ({ disabled = false }: { disabled?: boolean }) => {
   const { isSubmitting } = formState;
 
   return (
-    <Button disabled={disabled || isSubmitting} type="submit">
+    <Button disabled={disabled || isSubmitting} type="submit" className="flex-1">
       {isSubmitting ? (
         <>
           <Spinner aria-hidden="true" className="animate-spin" />
@@ -18,7 +18,7 @@ export const AddToCart = ({ disabled = false }: { disabled?: boolean }) => {
         </>
       ) : (
         <>
-          <ShoppingCart aria-hidden="true" className="mx-2" />
+          <ShoppingCart aria-hidden="true" size={20} strokeWidth={2} absoluteStrokeWidth />
           <span>Add to cart</span>
         </>
       )}

@@ -44,6 +44,9 @@ const config = {
         display: ['var(--font-mortend)'],
         header: ['var(--font-awesome-serif)'],
       },
+      fontSize: {
+        xxs: '0.625rem',
+      },
       keyframes: {
         dialogFadeIn: {
           from: { opacity: '0' },

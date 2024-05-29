@@ -24,7 +24,7 @@ export const MobileSideNav = ({ children }: PropsWithChildren) => {
   return (
     <Sheet onOpenChange={setOpen} open={open}>
       <SheetTrigger asChild>
-        <Button className="w-full !pl-3 sm:w-auto lg:hidden" variant="secondary">
+        <Button className="!pl-3 text-[11px] sm:text-xs lg:hidden" variant="secondary">
           <ListFilter size={16} strokeWidth={2} absoluteStrokeWidth className="me-3 shrink-0" />
           Filters
         </Button>

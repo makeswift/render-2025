@@ -1,5 +1,5 @@
 import { Slot } from '@radix-ui/react-slot';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import {
   ComponentPropsWithRef,
   createContext,
@@ -41,7 +41,10 @@ const GalleryPreviousIndicator = forwardRef<ElementRef<'button'>, ComponentProps
     return (
       <button
         aria-label="Previous product image"
-        className={cn('focus:outline-none focus:ring-4 focus:ring-blue-primary/20', className)}
+        className={cn(
+          'group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue',
+          className,
+        )}
         onClick={(e) => {
           setSelectedImageIndex(previousIndex);
 
@@ -52,7 +55,13 @@ const GalleryPreviousIndicator = forwardRef<ElementRef<'button'>, ComponentProps
         ref={ref}
         {...props}
       >
-        {children || <ChevronLeft />}
+        {children || (
+          <ArrowLeft
+            strokeWidth={2}
+            absoluteStrokeWidth
+            className="transition-transform group-hover:-translate-x-1.5"
+          />
+        )}
       </button>
     );
   },
@@ -68,7 +77,10 @@ const GalleryNextIndicator = forwardRef<ElementRef<'button'>, ComponentPropsWith
     return (
       <button
         aria-label="Next product image"
-        className={cn('focus:outline-none focus:ring-4 focus:ring-blue-primary/20', className)}
+        className={cn(
+          'group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue',
+          className,
+        )}
         onClick={(e) => {
           setSelectedImageIndex(nextIndex);
 
@@ -79,7 +91,13 @@ const GalleryNextIndicator = forwardRef<ElementRef<'button'>, ComponentPropsWith
         ref={ref}
         {...props}
       >
-        {children || <ChevronRight />}
+        {children || (
+          <ArrowRight
+            strokeWidth={2}
+            absoluteStrokeWidth
+            className="transition-transform group-hover:translate-x-1.5"
+          />
+        )}
       </button>
     );
   },
@@ -97,10 +115,7 @@ const GalleryControls = forwardRef<ElementRef<'div'>, ComponentPropsWithRef<'div
 
     return (
       <div
-        className={cn(
-          'absolute top-1/2 flex w-full -translate-y-1/2 justify-between px-5 sm:px-0',
-          className,
-        )}
+        className={cn('absolute top-1/2 flex w-full -translate-y-1/2 justify-between', className)}
         ref={ref}
         {...props}
       >
@@ -169,10 +184,7 @@ const GalleryThumbnailList = forwardRef<ElementRef<'nav'>, ComponentPropsWithRef
     return (
       <nav
         aria-label="Thumbnail navigation"
-        className={cn(
-          'mt-3 flex w-full flex-wrap items-center gap-4 px-1 py-1 md:mt-5 md:gap-6',
-          className,
-        )}
+        className={cn('mt-2 flex w-full flex-wrap items-center justify-center gap-2', className)}
         ref={ref}
         {...props}
       >
@@ -198,7 +210,7 @@ const GalleryThumbnailItem = forwardRef<ElementRef<'button'>, GalleryThumbnailIt
         aria-label="Enlarge product image"
         aria-pressed={isActive}
         className={cn(
-          'inline-block h-12 w-12 flex-shrink-0 flex-grow-0 focus:outline-none focus:ring-4 focus:ring-blue-primary/20 md:h-24 md:w-24',
+          'inline-block h-16 w-16 flex-shrink-0 flex-grow-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue md:h-24 md:w-24',
           className,
         )}
         onClick={(e) => {
@@ -238,8 +250,8 @@ const GalleryThumbnail = forwardRef<ElementRef<'img'>, GalleryThumbnailProps>(
     return (
       <Comp
         className={cn(
-          'flex cursor-pointer items-center justify-center border-2 hover:border-blue-primary',
-          isActive && 'border-blue-primary',
+          'flex cursor-pointer items-center justify-center border border-black/25 transition-colors hover:border-black',
+          isActive && 'border-pink hover:border-pink',
           'h-full w-full object-contain',
           className,
         )}
