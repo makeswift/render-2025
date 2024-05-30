@@ -29,7 +29,7 @@ export const Reviews = async ({ productId }: Props) => {
 
       <ul className="space-y-4">
         {reviews.length === 0 ? (
-          <p className="pb-6 pt-1">This product hasn't been reviewed yet.</p>
+          <p>This product hasn't been reviewed yet.</p>
         ) : (
           reviews.map((review) => {
             return (

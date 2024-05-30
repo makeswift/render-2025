@@ -26,7 +26,7 @@ const ProductDetails = ({ product }: { product: NonNullable<Product> }) => {
   return (
     <div>
       {product.brand && (
-        <p className="mb-2 font-semibold uppercase text-gray-500">{product.brand.name}</p>
+        <p className="mb-2 font-semibold uppercase text-black/50">{product.brand.name}</p>
       )}
 
       <h1 className="mb-3 font-display text-xl font-bold uppercase md:text-2xl lg:text-3xl">

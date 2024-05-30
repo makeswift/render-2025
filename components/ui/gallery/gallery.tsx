@@ -170,7 +170,7 @@ const GalleryContent = forwardRef<ElementRef<'figure'>, ComponentPropsWithRef<'f
   ({ className, children, ...props }, ref) => {
     return (
       <figure
-        className={cn('relative aspect-square h-full max-h-[548px] w-full', className)}
+        className={cn('relative aspect-square h-full max-h-[600px] w-full', className)}
         ref={ref}
         {...props}
       >
