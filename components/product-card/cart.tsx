@@ -47,7 +47,7 @@ export const Cart = ({ product }: { product: Partial<Product> }) => {
             <div className="flex items-center gap-3">
               <span>
                 {quantity} {quantity === 1 ? 'Item' : 'Items'} added to{' '}
-                <Link className="text-blue-primary font-semibold" href="/cart" prefetch={false}>
+                <Link className="font-semibold" href="/cart" prefetch={false}>
                   your cart
                 </Link>
               </span>

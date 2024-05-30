@@ -73,7 +73,6 @@ interface ProductCardProps {
   imagePriority?: boolean;
   showCart?: boolean;
   showCompare?: boolean;
-  mask?: boolean;
 }
 
 export const ProductCard = ({
@@ -82,7 +81,6 @@ export const ProductCard = ({
   imagePriority = false,
   showCart = true,
   showCompare = true,
-  mask = true,
 }: ProductCardProps) => {
   const summaryId = useId();
 
@@ -94,16 +92,11 @@ export const ProductCard = ({
     <ComponentsProductCard key={product.entityId}>
       <ProductCardImage>
         <div
-          className={cn(
-            'relative w-full',
-            {
-              'aspect-square': imageSize === 'square',
-              'aspect-[4/5]': imageSize === 'tall',
-              'aspect-[7/5]': imageSize === 'wide',
-            },
-            mask &&
-              '[-webkit-mask-image:url(/images/image-mask.svg)] [-webkit-mask-size:100%] [mask-image:url(/images/image-mask.svg)] [mask-size:100%]',
-          )}
+          className={cn('relative w-full', {
+            'aspect-square': imageSize === 'square',
+            'aspect-[4/5]': imageSize === 'tall',
+            'aspect-[7/5]': imageSize === 'wide',
+          })}
         >
           {product.defaultImage ? (
             <Image
