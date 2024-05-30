@@ -37,10 +37,10 @@ export default async function BlogPostPage({ searchParams }: Props) {
         })}
       </div>
 
-      <nav aria-label="Pagination" className="mb-12 mt-10 flex justify-center text-blue-primary">
+      <nav aria-label="Pagination" className="text-blue-primary mb-12 mt-10 flex justify-center">
         {blogPosts.posts.pageInfo.hasPreviousPage ? (
           <Link
-            className="focus:outline-none focus:ring-4 focus:ring-blue-primary/20"
+            className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue"
             href={`/blog?before=${String(blogPosts.posts.pageInfo.startCursor)}`}
             scroll={false}
           >
@@ -52,7 +52,7 @@ export default async function BlogPostPage({ searchParams }: Props) {
         )}
         {blogPosts.posts.pageInfo.hasNextPage ? (
           <Link
-            className="focus:outline-none focus:ring-4 focus:ring-blue-primary/20"
+            className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue"
             href={`/blog?after=${String(blogPosts.posts.pageInfo.endCursor)}`}
             scroll={false}
           >

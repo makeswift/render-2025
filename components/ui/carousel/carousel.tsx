@@ -257,7 +257,7 @@ const CarouselPaginationTab = forwardRef<ElementRef<'button'>, CarouselPaginatio
       <button
         aria-selected={isSelected}
         className={cn(
-          "focus:ring-blue-primary/20 h-7 w-7 p-0.5 after:block after:h-0.5 after:w-full after:bg-gray-400 after:content-[''] focus:outline-none focus:ring-4",
+          "h-7 w-7 p-0.5 after:block after:h-0.5 after:w-full after:bg-gray-400 after:content-[''] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue",
           isSelected && 'after:bg-black',
           className,
         )}

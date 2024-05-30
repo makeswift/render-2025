@@ -115,7 +115,10 @@ const GalleryControls = forwardRef<ElementRef<'div'>, ComponentPropsWithRef<'div
 
     return (
       <div
-        className={cn('absolute top-1/2 flex w-full -translate-y-1/2 justify-between', className)}
+        className={cn(
+          'absolute inset-x-3 top-1/2 flex -translate-y-1/2 justify-between md:inset-x-0',
+          className,
+        )}
         ref={ref}
         {...props}
       >
@@ -251,7 +254,7 @@ const GalleryThumbnail = forwardRef<ElementRef<'img'>, GalleryThumbnailProps>(
       <Comp
         className={cn(
           'flex cursor-pointer items-center justify-center border border-black/25 transition-colors hover:border-black',
-          isActive && 'border-pink hover:border-pink',
+          isActive && 'border-2 border-pink hover:border-pink',
           'h-full w-full object-contain',
           className,
         )}

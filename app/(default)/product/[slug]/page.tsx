@@ -41,7 +41,7 @@ const ProductDetails = ({ product }: { product: NonNullable<Product> }) => {
         <div className="my-5 text-base md:text-lg">
           {showPriceRange ? (
             <span>
-              {currencyFormatter.format(product.prices.priceRange.min.value)} -{' '}
+              {currencyFormatter.format(product.prices.priceRange.min.value)} —{' '}
               {currencyFormatter.format(product.prices.priceRange.max.value)}
             </span>
           ) : (
@@ -244,7 +244,7 @@ export default async function Product({ params, searchParams }: ProductPageProps
       <div>
         <div className="flex flex-col md:flex-row">
           <Gallery images={images} />
-          <div className="max-w-sm border-l border-black px-5 py-5 md:px-6 md:py-6 lg:max-w-lg lg:px-8 lg:py-8">
+          <div className="max-w-full border-black px-5 py-5 md:max-w-sm md:border-l md:px-6 md:py-6 lg:w-auto lg:max-w-lg lg:flex-auto lg:px-8 lg:py-8">
             <ProductDetails product={product} />
             <ProductDescriptionAndReviews product={product} />
           </div>

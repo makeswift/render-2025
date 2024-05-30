@@ -22,7 +22,7 @@ export const Gallery = ({ images }: Props) => {
   const defaultImageIndex = images.findIndex((image) => image.isDefault);
 
   return (
-    <div className="flex-1 p-5">
+    <div className="flex-1 p-0 md:p-5">
       <div className="lg:sticky lg:top-0">
         <ComponentsGallery defaultImageIndex={defaultImageIndex} images={images}>
           <GalleryContent>

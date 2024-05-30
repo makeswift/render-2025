@@ -9,7 +9,7 @@ const Swatch = forwardRef<
 >(({ children, className, ...props }, ref) => {
   return (
     <RadioGroupPrimitive.Root
-      className={cn('flex flex-wrap gap-4', className)}
+      className={cn('flex flex-wrap gap-2', className)}
       ref={ref}
       role="radiogroup"
       {...props}
@@ -29,8 +29,8 @@ const SwatchItem = forwardRef<ElementRef<typeof RadioGroupPrimitive.Item>, Swatc
   ({ children, className, disabled, variantColor, ...props }, ref) => (
     <RadioGroupPrimitive.Item
       className={cn(
-        'group h-12 w-12 border-2 bg-white p-1 hover:border-blue-primary focus:outline-none focus:ring-4 focus:ring-blue-primary/20 disabled:border-gray-100 disabled:hover:border-gray-100',
-        'data-[state=checked]:border-blue-primary',
+        'group h-12 w-12 border border-black/25 bg-white p-0.5 transition-colors hover:border-black focus:outline-none focus-visible:ring-2 focus-visible:ring-blue disabled:border-gray-100 disabled:hover:border-gray-100',
+        'data-[state=checked]:border-2 data-[state=checked]:border-pink',
         className,
       )}
       disabled={disabled}
@@ -39,7 +39,7 @@ const SwatchItem = forwardRef<ElementRef<typeof RadioGroupPrimitive.Item>, Swatc
     >
       {variantColor ? (
         <span
-          className={cn('block h-9 w-9 group-disabled:bg-gray-200 group-disabled:opacity-30')}
+          className={cn('block h-full w-full group-disabled:bg-gray-200 group-disabled:opacity-30')}
           style={{ backgroundColor: variantColor, backgroundImage: `url(${variantColor})` }}
         />
       ) : (

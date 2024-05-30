@@ -11,8 +11,8 @@ export const QuantityField = () => {
   });
 
   return (
-    <div className="@md:w-32">
-      <Label className="mb-2 inline-block font-semibold" htmlFor="quantity">
+    <div className="mb-5 w-28">
+      <Label className="sr-only" htmlFor="quantity">
         Quantity
       </Label>
       <Counter

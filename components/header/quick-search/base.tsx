@@ -142,7 +142,7 @@ export const BaseQuickSearch = ({
                     return (
                       <li className="mb-3 last:mb-6" key={name}>
                         <a
-                          className="focus:ring-primary-blue/20 align-items mb-6 flex gap-x-6 focus:outline-none focus:ring-4"
+                          className="focus:ring-primary-blue/20 align-items mb-6 flex gap-x-6 focus:outline-none focus-visible:ring-2"
                           href={path}
                         >
                           {name}
@@ -161,7 +161,7 @@ export const BaseQuickSearch = ({
                     return (
                       <li key={product.entityId}>
                         <a
-                          className="focus:ring-primary-blue/20 align-items mb-6 flex gap-x-6 focus:outline-none focus:ring-4"
+                          className="focus:ring-primary-blue/20 align-items mb-6 flex gap-x-6 focus:outline-none focus-visible:ring-2"
                           href={product.path}
                         >
                           {product.defaultImage ? (
@@ -205,7 +205,7 @@ export const BaseQuickSearch = ({
                     return (
                       <li className="mb-3 last:mb-6" key={name}>
                         <a
-                          className="focus:ring-primary-blue/20 align-items mb-6 flex gap-x-6 focus:outline-none focus:ring-4"
+                          className="focus:ring-primary-blue/20 align-items mb-6 flex gap-x-6 focus:outline-none focus-visible:ring-2"
                           href={path}
                         >
                           {name}
