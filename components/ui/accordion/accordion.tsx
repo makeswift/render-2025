@@ -22,7 +22,7 @@ const AccordionTrigger = React.forwardRef<
   <AccordionPrimitive.Header className="flex">
     <AccordionPrimitive.Trigger
       className={cn(
-        'flex flex-1 items-center justify-between py-[9.5px] text-lg font-bold outline-none transition-all hover:text-blue-secondary focus:text-blue-secondary [&[data-state=open]>svg]:rotate-180',
+        'flex flex-1 items-center justify-between py-2.5 font-display text-sm font-bold font-bold uppercase outline-none transition-all focus-visible:ring-2 focus-visible:ring-blue [&[data-state=open]>svg]:rotate-180',
         className,
       )}
       ref={ref}
@@ -30,7 +30,12 @@ const AccordionTrigger = React.forwardRef<
     >
       {children}
       {/* TODO: For the sake of moving fast we are leaving this in, but in the future we need to figure out how enable custom icons */}
-      <ChevronDown className="h-6 w-6 shrink-0 transition-transform duration-200" />
+      <ChevronDown
+        absoluteStrokeWidth
+        strokeWidth={2}
+        size={20}
+        className="shrink-0 transition-transform duration-200"
+      />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ));

@@ -42,7 +42,7 @@ const NavigationMenu = forwardRef<
   return (
     <ExpandedContext.Provider value={{ isExpanded, setIsExpanded: toggleExpanded }}>
       <NavigationMenuPrimitive.Root
-        className={cn(isExpanded && 'h-screen overflow-y-auto')}
+        className={cn(isExpanded && 'h-screen overflow-y-auto ring-1 ring-inset ring-black')}
         onValueChange={(newValue) => setValue(newValue)}
         ref={ref}
         value={value}
@@ -51,7 +51,7 @@ const NavigationMenu = forwardRef<
           <div className="relative">
             <div
               className={cn(
-                'group flex min-h-[92px] items-center justify-between gap-6 overflow-hidden bg-white px-6 2xl:container sm:px-10 lg:gap-8 lg:px-12 2xl:mx-auto 2xl:px-0',
+                'group flex min-h-16 items-center gap-4 overflow-hidden border border-b-0 border-black bg-pink px-4 pr-2 font-display text-xs uppercase sm:px-6 sm:pr-4 md:min-h-20 lg:min-h-24 lg:px-8',
                 className,
               )}
               {...props}
@@ -61,7 +61,7 @@ const NavigationMenu = forwardRef<
             {!isExpanded && (
               <NavigationMenuPrimitive.Viewport
                 className={cn(
-                  'absolute start-0 top-full z-50 w-full bg-white pb-12 pt-6 shadow-xl duration-200 animate-in slide-in-from-top-5',
+                  'absolute start-0 top-full z-30 w-full border border-black bg-transparent px-6 py-6 duration-300 animate-in fade-in slide-in-from-top-5 lg:bg-white',
                 )}
               />
             )}
@@ -78,11 +78,7 @@ const NavigationMenuList = forwardRef<
   ElementRef<typeof NavigationMenuPrimitive.List>,
   ComponentPropsWithRef<typeof NavigationMenuPrimitive.List>
 >(({ children, className, ...props }, ref) => (
-  <NavigationMenuPrimitive.List
-    className={cn('flex items-center gap-2 lg:gap-4', className)}
-    ref={ref}
-    {...props}
-  >
+  <NavigationMenuPrimitive.List className={cn('flex items-center', className)} ref={ref} {...props}>
     {children}
   </NavigationMenuPrimitive.List>
 ));
@@ -110,7 +106,7 @@ const NavigationMenuTrigger = forwardRef<
 >(({ className, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Trigger
     className={cn(
-      'group/button flex w-full items-center justify-between gap-1 p-3 font-semibold hover:text-blue-primary focus:outline-none focus:ring-4 focus:ring-blue-primary/20',
+      'group/button flex w-full items-center justify-between gap-2 pr-0 uppercase focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-blue lg:pr-3 [&>a]:pr-0',
       className,
     )}
     ref={ref}
@@ -131,7 +127,7 @@ const NavigationMenuContent = forwardRef<
   return (
     <NavigationMenuPrimitive.Content
       className={cn(
-        '2xl:container  2xl:mx-auto',
+        'justify-center 2xl:container 2xl:mx-auto',
         !isExpanded &&
           'data-[motion^=from-]:animate-in data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52',
         isExpanded && 'duration-200 animate-in slide-in-from-top-2',
@@ -156,7 +152,7 @@ const NavigationMenuLink = forwardRef<
   return (
     <NavigationMenuPrimitive.Link
       className={cn(
-        'flex justify-between p-3 font-semibold hover:text-blue-primary focus:outline-none focus:ring-4 focus:ring-blue-primary/20',
+        'flex items-center justify-between px-0 py-3 text-sm font-semibold focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-blue lg:px-3 lg:py-2 lg:text-xs',
         className,
       )}
       onClick={() => setIsExpanded(false)}
@@ -180,7 +176,7 @@ const NavigationMenuToggle = forwardRef<ElementRef<'button'>, ComponentPropsWith
         aria-expanded={isExpanded}
         aria-label="Toggle navigation"
         className={cn(
-          'group p-3 hover:text-blue-primary focus:outline-none focus:ring-4 focus:ring-blue-primary/20',
+          'group focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-blue',
           className,
         )}
         onClick={(e) => {
@@ -230,7 +226,7 @@ const NavigationMenuCollapsed = forwardRef<ElementRef<'div'>, ComponentPropsWith
     return (
       <div
         className={cn(
-          'in-collapsed-nav group absolute start-0 top-full z-50 w-full bg-white px-6 pb-6 duration-200 animate-in slide-in-from-top-5 2xl:container sm:px-10 lg:px-12 2xl:mx-auto 2xl:px-0',
+          'in-collapsed-nav group absolute start-0 top-full z-50 w-full border border-b-0 border-black bg-white px-5 py-5 duration-200 animate-in slide-in-from-top-5 2xl:container sm:px-6 lg:bg-white lg:px-10 2xl:mx-auto 2xl:px-0',
           className,
           !isExpanded && 'hidden',
         )}

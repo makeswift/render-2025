@@ -31,7 +31,7 @@ const ProductCount = ({ shouldDisplay, count }: ProductCountProps) => {
   }
 
   return (
-    <span className="ps-3 text-gray-500">
+    <span className="ps-3 font-light text-black/40">
       {count} <span className="sr-only">products</span>
     </span>
   );
@@ -106,7 +106,7 @@ export const Facets = ({ facets, pageType }: Props) => {
                     const key = `${brand.entityId}-${brand.isSelected.toString()}`;
 
                     return (
-                      <div className="flex max-w-sm items-center py-2 ps-1" key={key}>
+                      <div className="flex max-w-sm items-center py-1" key={key}>
                         <Checkbox
                           aria-labelledby={labelId}
                           defaultChecked={brand.isSelected}
@@ -149,7 +149,7 @@ export const Facets = ({ facets, pageType }: Props) => {
                     const key = `${category.entityId}-${category.isSelected.toString()}`;
 
                     return (
-                      <div className="flex max-w-sm items-center py-2 ps-1" key={key}>
+                      <div className="flex max-w-sm items-center py-1" key={key}>
                         <Checkbox
                           aria-labelledby={labelId}
                           defaultChecked={category.isSelected}
@@ -197,7 +197,7 @@ export const Facets = ({ facets, pageType }: Props) => {
                     }-${attribute.isSelected.toString()}`;
 
                     return (
-                      <div className="flex max-w-sm items-center py-2 ps-1" key={key}>
+                      <div className="flex max-w-sm items-center py-1" key={key}>
                         <Checkbox
                           aria-labelledby={labelId}
                           defaultChecked={attribute.isSelected}
@@ -244,7 +244,7 @@ export const Facets = ({ facets, pageType }: Props) => {
 
                       return (
                         <Link
-                          className="flex flex-row flex-nowrap py-2"
+                          className="flex flex-row flex-nowrap py-1"
                           href={{ search: `?${search.toString()}` }}
                           key={key}
                         >
@@ -275,7 +275,7 @@ export const Facets = ({ facets, pageType }: Props) => {
                   <h3>{facet.name}</h3>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="grid grid-cols-2 gap-4 p-1">
+                  <div className="grid grid-cols-2 gap-2">
                     <Input
                       aria-label="Minimum pricing"
                       defaultValue={facet.selected?.minPrice ?? ''}
@@ -309,7 +309,7 @@ export const Facets = ({ facets, pageType }: Props) => {
                 </AccordionTrigger>
                 <AccordionContent>
                   {facet.freeShipping && (
-                    <div className="flex max-w-sm items-center py-2 ps-1">
+                    <div className="flex max-w-sm items-center py-1">
                       <Checkbox
                         aria-labelledby="shipping-free_shipping-label"
                         defaultChecked={facet.freeShipping.isSelected}
@@ -332,7 +332,7 @@ export const Facets = ({ facets, pageType }: Props) => {
                     </div>
                   )}
                   {facet.isFeatured && (
-                    <div className="flex max-w-sm items-center py-2 ps-1">
+                    <div className="flex max-w-sm items-center py-1">
                       <Checkbox
                         aria-labelledby="isFeatured-label"
                         defaultChecked={facet.isFeatured.isSelected}
@@ -354,7 +354,7 @@ export const Facets = ({ facets, pageType }: Props) => {
                     </div>
                   )}
                   {facet.isInStock && (
-                    <div className="flex max-w-sm items-center py-2 ps-1">
+                    <div className="flex max-w-sm items-center py-1">
                       <Checkbox
                         aria-labelledby="stock-in_stock-label"
                         defaultChecked={facet.isInStock.isSelected}

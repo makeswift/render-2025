@@ -12,7 +12,7 @@ import { getStoreSettings } from '~/client/queries/get-store-settings';
 import { Notifications } from './notifications';
 import { Providers } from './providers';
 
-import { Akira, AwesomeSerif, IBMPlexSans, Mortend, MortendOutline } from '~/lib/fonts';
+import { AwesomeSerif, IBMPlexSans, Mortend } from '~/lib/fonts';
 
 export async function generateMetadata(): Promise<Metadata> {
   const storeSettings = await getStoreSettings();
@@ -36,14 +36,7 @@ export const fetchCache = 'default-cache';
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html
-      className={clsx(
-        IBMPlexSans.variable,
-        Mortend.variable,
-        MortendOutline.variable,
-        Akira.variable,
-        AwesomeSerif.variable,
-        'font-sans',
-      )}
+      className={clsx(IBMPlexSans.variable, Mortend.variable, AwesomeSerif.variable, 'font-sans')}
       lang="en"
     >
       <head>

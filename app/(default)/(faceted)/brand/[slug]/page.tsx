@@ -52,7 +52,9 @@ export default async function Brand({ params, searchParams }: Props) {
   return (
     <div>
       <div className="md:mb-8 lg:flex lg:flex-row lg:items-center lg:justify-between">
-        <h1 className="mb-4 text-4xl font-black lg:mb-0 lg:text-5xl">{brand.name}</h1>
+        <h1 className="mb-3 font-display text-xl font-bold uppercase md:text-2xl lg:mb-0 lg:text-3xl">
+          {brand.name}
+        </h1>
 
         <div className="flex flex-col items-center gap-3 whitespace-nowrap md:flex-row">
           <MobileSideNav>
@@ -96,7 +98,7 @@ export default async function Brand({ params, searchParams }: Props) {
             ))}
           </div>
 
-          <nav aria-label="Pagination" className="my-6 text-center text-blue-primary">
+          <nav aria-label="Pagination" className="text-blue-primary my-6 text-center">
             {hasPreviousPage ? (
               <Link href={`${brand.path}?before=${String(startCursor)}`}>
                 <span className="sr-only">Previous</span>

@@ -9,7 +9,7 @@ const Tag = forwardRef<ElementRef<'div'>, TagProps>(({ className, ...props }, re
   return (
     <div
       className={cn(
-        'inline-flex h-[40px] flex-row items-center whitespace-nowrap bg-gray-100',
+        'inline-flex h-[40px] flex-row items-center whitespace-nowrap bg-gray-100 text-sm',
         className,
       )}
       ref={ref}
@@ -25,7 +25,7 @@ type TagContentProps = ComponentPropsWithRef<'span'>;
 const TagContent = forwardRef<ElementRef<'span'>, TagContentProps>(
   ({ className, ...props }, ref) => {
     return (
-      <span className={cn('pe-2 ps-4 font-semibold only:px-4', className)} ref={ref} {...props} />
+      <span className={cn('pe-1 ps-4 font-semibold only:px-4', className)} ref={ref} {...props} />
     );
   },
 );
@@ -39,13 +39,13 @@ const TagAction = forwardRef<ElementRef<'button'>, TagActionProps>(
     return (
       <button
         className={cn(
-          'box-content inline-flex h-8 w-8 items-center justify-center p-1 hover:bg-blue-primary/10 focus:outline-none focus:ring-4 focus:ring-inset focus:ring-blue-primary/20',
+          'inline-flex h-10 w-10 items-center justify-center opacity-50 transition-opacity duration-150 hover:opacity-100 focus:outline-none focus:ring-inset focus-visible:ring-2 focus-visible:ring-blue',
         )}
         ref={ref}
         type="button"
         {...props}
       >
-        {children || <X className="h-4 w-4" />}
+        {children || <X size={16} strokeWidth={2} absoluteStrokeWidth />}
       </button>
     );
   },

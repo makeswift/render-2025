@@ -41,7 +41,10 @@ export const QuickSearch = ({ children }: { children: React.ReactNode }) => {
       query={query}
       searchResults={results}
     >
-      <Link className="flex focus:outline-none focus:ring-4 focus:ring-blue-primary/20" href="/">
+      <Link
+        className="flex focus:outline-none focus-visible:ring-2 focus-visible:ring-blue"
+        href="/"
+      >
         {children}
       </Link>
     </BaseQuickSearch>

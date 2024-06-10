@@ -6,7 +6,7 @@ const ProductCard = forwardRef<ElementRef<'div'>, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...props }, ref) => {
     return (
       <div
-        className={cn('group relative flex flex-col overflow-visible', className)}
+        className={cn('group relative flex flex-col items-start overflow-visible', className)}
         ref={ref}
         {...props}
       >
@@ -21,7 +21,7 @@ ProductCard.displayName = 'ProductCard';
 const ProductCardImage = forwardRef<ElementRef<'div'>, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...props }, ref) => {
     return (
-      <div className={cn('relative flex justify-center pb-3', className)} ref={ref} {...props}>
+      <div className={cn('w-full', className)} ref={ref} {...props}>
         {children}
       </div>
     );
@@ -49,7 +49,7 @@ ProductCardBadge.displayName = 'ProductCardBadge';
 const ProductCardInfo = forwardRef<ElementRef<'div'>, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...props }, ref) => {
     return (
-      <div className={cn('flex flex-1 flex-col gap-1', className)} ref={ref} {...props}>
+      <div className={cn('flex flex-1 flex-col gap-1 pr-6', className)} ref={ref} {...props}>
         {children}
       </div>
     );
@@ -73,7 +73,14 @@ ProductCardInfoBrandName.displayName = 'ProductCardInfoBrandName';
 const ProductCardInfoProductName = forwardRef<ElementRef<'h3'>, ComponentPropsWithRef<'h3'>>(
   ({ children, className, ...props }, ref) => {
     return (
-      <h3 className={cn('text-xl font-bold lg:text-2xl', className)} ref={ref} {...props}>
+      <h3
+        className={cn(
+          'font-display text-sm font-bold uppercase !leading-tight lg:text-base',
+          className,
+        )}
+        ref={ref}
+        {...props}
+      >
         {children}
       </h3>
     );
@@ -85,7 +92,7 @@ ProductCardInfoProductName.displayName = 'ProductCardInfoProductName';
 const ProductCardInfoPrice = forwardRef<ElementRef<'div'>, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...props }, ref) => {
     return (
-      <div className={cn('pt-2 text-base', className)} ref={ref} {...props}>
+      <div className={cn('text-base', className)} ref={ref} {...props}>
         {children}
       </div>
     );

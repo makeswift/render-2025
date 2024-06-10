@@ -16,13 +16,13 @@ export const BreadCrumbs = async ({ productId }: Props) => {
 
   return (
     <nav>
-      <ul className="m-0 flex flex-wrap items-center p-0 md:container md:mx-auto ">
+      <ul className="flex flex-wrap items-center px-3 py-4 sm:px-6 lg:px-8">
         {category.breadcrumbs.map((breadcrumb, i, arr) => {
           const isLast = arr.length - 1 === i;
 
           return (
             <li
-              className={cn('p-1 ps-0 hover:text-blue-primary', {
+              className={cn('p-1 ps-0 hover:text-pink', {
                 'font-semibold': !isLast,
                 'font-extrabold': isLast,
               })}

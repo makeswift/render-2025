@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -56,10 +56,19 @@ export default async function Category({ params, searchParams }: Props) {
     <div>
       <Breadcrumbs breadcrumbs={category.breadcrumbs.items} category={category.name} />
 
-      <div className="md:mb-8 lg:flex lg:flex-row lg:items-center lg:justify-between">
-        <h1 className="mb-4 text-4xl font-black lg:mb-0 lg:text-5xl">{category.name}</h1>
+      <div className="flex w-full flex-col flex-wrap items-center gap-4 border-b border-black px-4 pb-4 sm:px-6 md:flex-row lg:px-8 lg:pb-5">
+        <div className="flex w-full flex-1 items-center justify-between md:w-auto">
+          <h1 className="font-display text-xl font-bold uppercase md:mb-0 md:text-2xl lg:text-3xl">
+            {category.name}
+          </h1>
+          <div className="flex-1 shrink-0 text-right text-sm">
+            {/* TODO: Plural vs. singular items */}
+            {productsCollection.collectionInfo?.totalItems} items
+          </div>
+        </div>
 
-        <div className="flex flex-col items-center gap-3 whitespace-nowrap md:flex-row">
+        <div className="flex w-full items-center gap-3 md:w-auto">
+          <SortBy />
           <MobileSideNav>
             <FacetedSearch
               facets={search.facets.items}
@@ -69,19 +78,12 @@ export default async function Category({ params, searchParams }: Props) {
               <SubCategories categoryId={categoryId} />
             </FacetedSearch>
           </MobileSideNav>
-          <div className="flex w-full flex-col items-start gap-4 md:flex-row md:items-center md:justify-end md:gap-6">
-            <SortBy />
-            <div className="order-3 py-4 text-base font-semibold md:order-2 md:py-0">
-              {/* TODO: Plural vs. singular items */}
-              {productsCollection.collectionInfo?.totalItems} items
-            </div>
-          </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-8">
+      <div className="flex">
         <FacetedSearch
-          className="mb-8 hidden lg:block"
+          className="hidden w-64 border-r border-black pl-5 pr-3 md:py-4 md:pl-6 md:pr-4 lg:block lg:py-5 lg:pl-8 lg:pr-6 xl:w-72 2xl:w-80"
           facets={search.facets.items}
           headingId="desktop-filter-heading"
           pageType="category"
@@ -89,39 +91,42 @@ export default async function Category({ params, searchParams }: Props) {
           <SubCategories categoryId={categoryId} />
         </FacetedSearch>
 
-        <section aria-labelledby="product-heading" className="col-span-4 lg:col-span-3">
+        <section aria-labelledby="product-heading" className="flex-1">
           <h2 className="sr-only" id="product-heading">
             Products
           </h2>
 
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8">
+          <div className="grid grid-cols-2 gap-3 px-4 py-4 sm:grid-cols-3 sm:gap-5 md:gap-8 md:px-6">
             {products.map((product, index) => (
               <ProductCard
                 imagePriority={index <= 3}
-                imageSize="wide"
+                imageSize="square"
                 key={product.entityId}
                 product={product}
               />
             ))}
           </div>
 
-          <nav aria-label="Pagination" className="my-6 text-center text-blue-primary">
+          <nav
+            aria-label="Pagination"
+            className="mt-3 space-x-3 border-t border-black py-4 text-center md:mt-6 md:py-6"
+          >
             {hasPreviousPage ? (
               <Link href={`${category.path}?before=${String(startCursor)}`}>
                 <span className="sr-only">Previous</span>
-                <ChevronLeft aria-hidden="true" className="inline-block h-8 w-8" />
+                <ArrowLeft aria-hidden="true" className="inline-block h-6 w-6" />
               </Link>
             ) : (
-              <ChevronLeft aria-hidden="true" className="inline-block h-8 w-8 text-gray-200" />
+              <ArrowLeft aria-hidden="true" className="inline-block h-6 w-6 opacity-15" />
             )}
 
             {hasNextPage ? (
               <Link href={`${category.path}?after=${String(endCursor)}`}>
                 <span className="sr-only">Next</span>
-                <ChevronRight aria-hidden="true" className="inline-block h-8 w-8" />
+                <ArrowRight aria-hidden="true" className="inline-block h-6 w-6" />
               </Link>
             ) : (
-              <ChevronRight aria-hidden="true" className="inline-block h-8 w-8 text-gray-200" />
+              <ArrowRight aria-hidden="true" className="inline-block h-6 w-6 opacity-15" />
             )}
           </nav>
         </section>

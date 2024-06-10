@@ -14,12 +14,12 @@ type SheetCloseProps = ComponentPropsWithoutRef<typeof SheetPrimitive.Close>;
 const SheetClose = forwardRef<ElementRef<typeof SheetPrimitive.Close>, SheetCloseProps>(
   ({ children, className, ...props }, ref) => (
     <SheetPrimitive.Close
-      className={cn('focus:outline-none focus:ring-4 focus:ring-blue-primary/20', className)}
+      className={cn('focus:outline-none focus-visible:ring-2 focus-visible:ring-blue', className)}
       ref={ref}
       {...props}
     >
       {children || (
-        <X className="h-6 w-6">
+        <X size={20} strokeWidth={2} absoluteStrokeWidth>
           <title>Close</title>
         </X>
       )}
@@ -52,7 +52,7 @@ const SheetOverlay = forwardRef<
 SheetOverlay.displayName = SheetPrimitive.Overlay.displayName;
 
 const sheetVariants = cva(
-  'fixed gap-4 bg-white p-6 md:p-10 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500 overflow-auto',
+  'fixed gap-4 bg-white p-6 md:p-10 border border-black shadow-none transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500 overflow-auto',
   {
     variants: {
       side: {
@@ -109,7 +109,11 @@ const SheetTitle = forwardRef<
   ElementRef<typeof SheetPrimitive.Title>,
   ComponentPropsWithoutRef<typeof SheetPrimitive.Title>
 >(({ className, ...props }, ref) => (
-  <SheetPrimitive.Title className={cn('text-2xl font-bold', className)} ref={ref} {...props} />
+  <SheetPrimitive.Title
+    className={cn('font-display text-xl font-bold uppercase', className)}
+    ref={ref}
+    {...props}
+  />
 ));
 
 SheetTitle.displayName = SheetPrimitive.Title.displayName;

@@ -44,15 +44,15 @@ export const BaseFooter = ({ brands, categoryTree, storeSettings, webPages }: Pr
             title="Help"
           />
         </FooterNav>
-        <div className="flex shrink-0 grow flex-col gap-4 md:order-first">
-          <h3 className="mb-4">
+        <div className="flex shrink-0 grow flex-col gap-4 sm:order-first">
+          <h3 className="mb-2 md:mb-4">
             <StoreLogo settings={storeSettings} />
           </h3>
-          <ContactInformation contact={storeSettings.contact} />
+          {/* <ContactInformation contact={storeSettings.contact} /> */}
           <SocialIcons storeSettings={storeSettings} />
         </div>
       </FooterSection>
-      <FooterSection className="justify-between gap-10 sm:flex-row sm:gap-8 sm:py-6">
+      <FooterSection className="justify-between gap-6 sm:flex-row sm:gap-8 sm:py-6">
         <PaymentMethods />
         <Copyright storeName={storeSettings.storeName} />
       </FooterSection>

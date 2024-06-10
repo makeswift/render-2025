@@ -6,7 +6,7 @@ import { ComponentPropsWithRef, ElementRef, forwardRef } from 'react';
 import { cn } from '~/lib/utils';
 
 const selectVariants = cva(
-  'focus:ring-blue-primary/20 group flex h-12 w-full items-center justify-between border-2 border-gray-200 px-4 py-3 text-base text-black hover:border-blue-primary focus:border-blue-primary focus:outline-none focus:ring-4 disabled:bg-gray-100 disabled:hover:border-gray-200 data-[placeholder]:text-gray-500',
+  'group w-auto inline-flex items-center justify-center relative overflow-hidden border-2 font-display font-bold uppercase leading-none text-black transition duration-150 px-3 py-2.5 text-xs md:px-4 md:pr-3 focus:ring-0 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-blue group gap-x-2 bg-transparent text-black border-2 border-black hover:border-pink disabled:text-gray-400 disabled:hover:bg-transparent disabled:hover:border-gray-400 disabled:hover:text-gray-400',
   {
     variants: {
       variant: {
@@ -42,7 +42,7 @@ const Select = forwardRef<ElementRef<SelectTriggerType>, SelectProps>(
           <SelectPrimitive.Value placeholder={placeholder} />
           {/* TODO: For the sake of moving fast we are leaving this in, but in the future we need to figure out how enable custom icons */}
           <SelectPrimitive.Icon>
-            <ChevronDown className="inline group-focus:text-blue-primary group-enabled:group-hover:text-blue-primary" />
+            <ChevronDown size={16} strokeWidth={2} absoluteStrokeWidth />
           </SelectPrimitive.Icon>
         </SelectPrimitive.Trigger>
 
@@ -66,7 +66,7 @@ const SelectContent = forwardRef<
         position="popper"
         {...props}
         className={cn(
-          'relative w-full bg-white shadow-md max-h-radix-select-content-available-height data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
+          'relative w-full border border-black bg-white max-h-radix-select-content-available-height data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
           className,
         )}
         ref={ref}
@@ -89,7 +89,7 @@ const SelectItem = forwardRef<ElementRef<SelectItemType>, ComponentPropsWithRef<
       <SelectPrimitive.Item
         {...props}
         className={cn(
-          'relative flex w-full cursor-pointer select-none items-center justify-between overflow-visible px-4 py-2 outline-none hover:bg-blue-secondary/10 hover:text-blue-primary focus:bg-blue-secondary/10 data-[disabled]:pointer-events-none data-[state="checked"]:bg-blue-secondary/10 data-[state="checked"]:text-blue-primary data-[disabled]:opacity-50',
+          'relative flex w-full cursor-pointer select-none items-center justify-between overflow-visible px-4 py-2 text-black/50 outline-none transition-colors hover:bg-pink/20 hover:text-black data-[disabled]:pointer-events-none data-[state="checked"]:bg-pink data-[state="checked"]:text-black data-[disabled]:opacity-50',
           className,
         )}
         ref={ref}
@@ -97,7 +97,7 @@ const SelectItem = forwardRef<ElementRef<SelectItemType>, ComponentPropsWithRef<
         <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
         {/* TODO: For the sake of moving fast we are leaving this in, but in the future we need to figure out how enable custom indicators */}
         <SelectPrimitive.ItemIndicator>
-          <Check />
+          <Check size={16} strokeWidth={2} absoluteStrokeWidth />
         </SelectPrimitive.ItemIndicator>
       </SelectPrimitive.Item>
     );

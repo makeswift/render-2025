@@ -26,20 +26,22 @@ const ProductDetails = ({ product }: { product: NonNullable<Product> }) => {
   return (
     <div>
       {product.brand && (
-        <p className="mb-2 font-semibold uppercase text-gray-500">{product.brand.name}</p>
+        <p className="mb-2 font-semibold uppercase text-black/50">{product.brand.name}</p>
       )}
 
-      <h1 className="mb-4 text-4xl font-black lg:text-5xl">{product.name}</h1>
+      <h1 className="mb-3 font-display text-xl font-bold uppercase md:text-2xl lg:text-3xl">
+        {product.name}
+      </h1>
 
       <Suspense fallback="Loading...">
         <ReviewSummary productId={product.entityId} />
       </Suspense>
 
       {product.prices && (
-        <div className="my-6 text-2xl font-bold lg:text-3xl">
+        <div className="my-5 text-base md:text-lg">
           {showPriceRange ? (
             <span>
-              {currencyFormatter.format(product.prices.priceRange.min.value)} -{' '}
+              {currencyFormatter.format(product.prices.priceRange.min.value)} —{' '}
               {currencyFormatter.format(product.prices.priceRange.max.value)}
             </span>
           ) : (
@@ -56,14 +58,11 @@ const ProductDetails = ({ product }: { product: NonNullable<Product> }) => {
               {product.prices.salePrice?.value !== undefined &&
               product.prices.basePrice?.value !== undefined ? (
                 <>
-                  <span>
-                    Was:{' '}
-                    <span className="line-through">
-                      {currencyFormatter.format(product.prices.basePrice.value)}
-                    </span>
+                  <span className="line-through opacity-50">
+                    {currencyFormatter.format(product.prices.basePrice.value)}
                   </span>
-                  <br />
-                  <span>Now: {currencyFormatter.format(product.prices.salePrice.value)}</span>
+                  {'  '}
+                  {currencyFormatter.format(product.prices.salePrice.value)}
                 </>
               ) : (
                 product.prices.price.value && (
@@ -77,8 +76,10 @@ const ProductDetails = ({ product }: { product: NonNullable<Product> }) => {
 
       <ProductForm product={product} />
 
-      <div className="my-12">
-        <h2 className="mb-4 text-xl font-bold md:text-2xl">Additional details</h2>
+      <div className="mt-10">
+        <h2 className="mb-4 font-display text-xs font-bold uppercase md:text-sm">
+          Additional details
+        </h2>
         <div className="grid gap-3 sm:grid-cols-2">
           {Boolean(product.sku) && (
             <div>
@@ -143,14 +144,18 @@ const ProductDescriptionAndReviews = ({ product }: { product: NonNullable<Produc
     <div className="lg:col-span-2">
       {Boolean(product.description) && (
         <>
-          <h2 className="mb-4 text-xl font-bold md:text-2xl">Description</h2>
+          <h2 className="mb-3 mt-8 font-display text-xs font-bold uppercase md:text-sm">
+            Description
+          </h2>
           <div dangerouslySetInnerHTML={{ __html: product.description }} />
         </>
       )}
 
       {Boolean(product.warranty) && (
         <>
-          <h2 className="mb-4 mt-8 text-xl font-bold md:text-2xl">Warranty</h2>
+          <h2 className="mb-3 mt-8 font-display text-xs font-bold uppercase md:text-sm">
+            Warranty
+          </h2>
           <p>{product.warranty}</p>
         </>
       )}
@@ -236,14 +241,20 @@ export default async function Product({ params, searchParams }: ProductPageProps
   return (
     <>
       <BreadCrumbs productId={productId} />
-      <div className="mb-12 mt-4 lg:grid lg:grid-cols-2 lg:gap-8">
-        <Gallery images={images} />
-        <ProductDetails product={product} />
-        <ProductDescriptionAndReviews product={product} />
+      <div>
+        <div className="flex flex-col md:flex-row">
+          <Gallery images={images} />
+          <div className="max-w-full border-black px-5 py-5 md:max-w-sm md:border-l md:px-6 md:py-6 lg:w-auto lg:max-w-lg lg:flex-auto lg:px-8 lg:py-8">
+            <ProductDetails product={product} />
+            <ProductDescriptionAndReviews product={product} />
+          </div>
+        </div>
       </div>
 
       <Suspense fallback="Loading...">
-        <RelatedProducts optionValueIds={optionValueIds} productId={productId} />
+        <div className="p-5 md:p-8 lg:p-10">
+          <RelatedProducts optionValueIds={optionValueIds} productId={productId} />
+        </div>
       </Suspense>
     </>
   );

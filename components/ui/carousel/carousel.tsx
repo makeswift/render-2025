@@ -14,6 +14,7 @@ import {
 } from 'react';
 
 import { cn } from '~/lib/utils';
+import { Button } from '../button';
 
 const CarouselContext = createContext<UseEmblaCarouselType>([() => null, undefined]);
 
@@ -57,7 +58,7 @@ const CarouselContent = forwardRef<ForwardedRef, ComponentPropsWithRef<'ul'>>(
 
     return (
       <div ref={refCallback}>
-        <ul aria-live="polite" className={cn('-ml-8 mt-5 flex lg:mt-6', className)} {...props}>
+        <ul aria-live="polite" className={cn('mt-5 flex lg:mt-8', className)} {...props}>
           {children}
         </ul>
       </div>
@@ -88,7 +89,7 @@ const CarouselSlide = forwardRef<ElementRef<'li'>, CarouselSlideProps>(
       <li
         aria-roledescription="slide"
         className={cn(
-          'min-w-0 shrink-0 grow-0 basis-full pl-8 sm:basis-1/2 md:basis-1/3 lg:basis-1/4',
+          'min-w-0 shrink-0 grow-0 basis-full px-1 sm:basis-1/2 md:basis-1/3 lg:basis-1/4',
           className,
         )}
         ref={ref}
@@ -117,10 +118,11 @@ const CarouselPreviousIndicator = forwardRef<ElementRef<'button'>, ComponentProp
     }, [emblaApi]);
 
     return (
-      <button
+      <Button
         aria-label="Previous products"
+        variant="subtle"
         className={cn(
-          'inline-flex h-12 w-12 items-center justify-center focus:outline-none focus:ring-4 focus:ring-blue-primary/20',
+          '!p-2.5 focus:outline-none focus:ring-2 focus-visible:ring-blue',
           isHidden && 'hidden',
           className,
         )}
@@ -135,7 +137,7 @@ const CarouselPreviousIndicator = forwardRef<ElementRef<'button'>, ComponentProp
         {...props}
       >
         {children || <ArrowLeft />}
-      </button>
+      </Button>
     );
   },
 );
@@ -159,7 +161,7 @@ const CarouselNextIndicator = forwardRef<ElementRef<'button'>, ComponentPropsWit
       <button
         aria-label="Next products"
         className={cn(
-          'inline-flex h-12 w-12 items-center justify-center focus:outline-none focus:ring-4 focus:ring-blue-primary/20',
+          '!p-2.5 focus:outline-none focus:ring-2 focus-visible:ring-blue',
           isHidden && 'hidden',
           className,
         )}
@@ -255,7 +257,7 @@ const CarouselPaginationTab = forwardRef<ElementRef<'button'>, CarouselPaginatio
       <button
         aria-selected={isSelected}
         className={cn(
-          "h-7 w-7 p-0.5 after:block after:h-0.5 after:w-full after:bg-gray-400 after:content-[''] focus:outline-none focus:ring-4 focus:ring-blue-primary/20",
+          "h-7 w-7 p-0.5 after:block after:h-0.5 after:w-full after:bg-gray-400 after:content-[''] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue",
           isSelected && 'after:bg-black',
           className,
         )}

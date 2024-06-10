@@ -84,7 +84,7 @@ export const ProductSheetContent = () => {
           </div>
           <div className="flex-shrink ps-4">
             {product.brand && (
-              <p className="mb-2 font-semibold uppercase text-gray-500">{product.brand.name}</p>
+              <p className="mb-2 font-semibold uppercase text-black/50">{product.brand.name}</p>
             )}
 
             <h5 className="mb-2 text-xl font-bold lg:text-2xl">{product.name}</h5>
@@ -93,7 +93,7 @@ export const ProductSheetContent = () => {
               <p
                 aria-describedby={summaryId}
                 className={cn(
-                  'flex flex-nowrap text-blue-primary',
+                  'text-blue-primary flex flex-nowrap',
                   product.reviewSummary.numberOfReviews === 0 && 'text-gray-400',
                 )}
               >
@@ -160,7 +160,7 @@ export const ProductSheetContent = () => {
   }
 
   return (
-    <div className="flex h-full w-full items-center justify-center text-blue-primary">
+    <div className="text-blue-primary flex h-full w-full items-center justify-center">
       <Spinner aria-hidden="true" className="animate-spin" />
       <span className="sr-only">Loading...</span>
     </div>
