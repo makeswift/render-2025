@@ -14,30 +14,36 @@ import {
 
 const slides = [
   {
-    title: 'Welcome to the official Render Store',
+    title: 'Keep it Fuzzie',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'Fuzzies Co. is here to bring warm and fuzzy vibes to tech with custom, vibrant illustrations',
     buttonText: 'Shop now',
-    buttonLink: '/#',
-    image: '/images/hardwear-hero.webp',
+    buttonLink: '/shop-all/?brand=38',
+    image: '/images/hardwear-hero-1.jpeg',
     overlay: true,
   },
   {
-    title: 'Great deals for you!',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    title: 'Never Slipping',
+    description: 'Be sure to cop your never slipping',
     buttonText: 'Shop now',
-    buttonLink: '/#',
-    image: '',
+    buttonLink: '/shop-all/?brand=38',
+    image: '/images/hardwear-hero-3.webp',
     overlay: false,
   },
   {
-    title: 'Buy now!',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    title: 'The New Silicon South',
+    description: 'Silicon South Sweaters',
     buttonText: 'Shop now',
-    buttonLink: '/#',
-    image: '',
+    buttonLink: '/shop-all',
+    image: '/images/hardwear-hero-2.webp',
+    overlay: true,
+  },
+  {
+    title: 'Jersey of Champions',
+    description: 'The Official RenderATL Jersey of 2024. Limited supplies while they last',
+    buttonText: 'Shop now',
+    buttonLink: '/render-championship-jersey-preorder/',
+    image: '/images/hardwear-hero-4.webp',
     overlay: true,
   },
 ];
