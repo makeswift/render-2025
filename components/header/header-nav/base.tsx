@@ -36,7 +36,7 @@ export const BaseHeaderNav = ({
                 <NavigationMenuTrigger className="gap-1">
                   <>
                     <NavigationMenuLink asChild>
-                      <Link className="grow" href={category.path}>
+                      <Link className="grow" href={category.path} prefetch={true}>
                         {category.name}
                       </Link>
                     </NavigationMenuLink>
@@ -85,7 +85,7 @@ export const BaseHeaderNav = ({
               </>
             ) : (
               <NavigationMenuLink asChild>
-                <Link href={category.path}>{category.name}</Link>
+                <Link href={category.path} prefetch={true}>{category.name}</Link>
               </NavigationMenuLink>
             )}
           </NavigationMenuItem>

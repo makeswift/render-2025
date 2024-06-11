@@ -118,6 +118,7 @@ export const ProductCard = ({
             <Link
               className="focus:outline-none focus-visible:outline-2 focus-visible:outline-blue focus-visible:ring-0"
               href={product.path}
+              prefetch={true}
             >
               <span aria-hidden="true" className="absolute inset-0 bottom-20" />
               {product.name}

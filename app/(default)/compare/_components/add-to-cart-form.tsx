@@ -34,7 +34,7 @@ export const AddToCartForm = ({
           <div className="flex items-center gap-3">
             <span>
               {quantity} {quantity === 1 ? 'Item' : 'Items'} added to{' '}
-              <Link className="font-semibold" href="/cart" prefetch={false}>
+              <Link className="font-semibold" href="/cart" prefetch={true}>
                 your cart
               </Link>
             </span>
