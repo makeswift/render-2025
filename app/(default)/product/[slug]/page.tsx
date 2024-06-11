@@ -29,16 +29,16 @@ const ProductDetails = ({ product }: { product: NonNullable<Product> }) => {
         <p className="mb-2 font-semibold uppercase text-black/50">{product.brand.name}</p>
       )}
 
-      <h1 className="mb-3 font-display text-xl font-bold uppercase md:text-2xl lg:text-3xl">
+      <h1 className="font-display text-xl font-bold uppercase md:text-2xl lg:text-3xl">
         {product.name}
       </h1>
 
-      <Suspense fallback="Loading...">
+      {/* <Suspense fallback="Loading...">
         <ReviewSummary productId={product.entityId} />
-      </Suspense>
+      </Suspense> */}
 
       {product.prices && (
-        <div className="my-5 text-base md:text-lg">
+        <div className="mb-6 mt-2 text-lg md:text-xl">
           {showPriceRange ? (
             <span>
               {currencyFormatter.format(product.prices.priceRange.min.value)} —{' '}
@@ -252,9 +252,7 @@ export default async function Product({ params, searchParams }: ProductPageProps
       </div>
 
       <Suspense fallback="Loading...">
-        <div className="p-5 md:p-8 lg:p-10">
-          <RelatedProducts optionValueIds={optionValueIds} productId={productId} />
-        </div>
+        <RelatedProducts optionValueIds={optionValueIds} productId={productId} />
       </Suspense>
     </>
   );

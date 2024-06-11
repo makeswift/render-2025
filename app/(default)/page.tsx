@@ -43,7 +43,7 @@ export default async function Home() {
     <>
       <Hero />
 
-      <div className="grid h-auto w-full grid-cols-2 gap-[1px] bg-black md:h-36 md:grid-cols-4">
+      <div className="grid h-auto w-full grid-cols-2 bg-black md:h-36 md:grid-cols-4">
         {logos.map((logo, index) => (
           <Link className="w-full place-content-center bg-white p-8" href={logo.link}>
             <div className="w-full [&>div]:![position:unset]"></div>

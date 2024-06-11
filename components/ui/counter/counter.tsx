@@ -5,7 +5,7 @@ import { ComponentPropsWithRef, ElementRef, forwardRef, useRef, useState } from 
 import { cn } from '~/lib/utils';
 
 const inputVariants = cva(
-  'peer/input w-full border-2 border-black/25 px-10 py-2.5 text-center text-base placeholder:text-gray-500 hover:border-blue-primary focus:border-blue-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-blue disabled:bg-gray-100 disabled:hover:border-gray-200 peer-hover/down:border-blue-primary peer-hover/up:border-blue-primary peer-hover/down:disabled:border-gray-200 peer-hover/up:disabled:border-gray-200 [&::-webkit-inner-spin-button]:appearance-none',
+  'peer/input w-full border-2 border-black px-10 py-2.5 text-center text-base placeholder:text-gray-500 hover:border-blue-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-blue disabled:bg-gray-100 disabled:hover:border-gray-200 peer-hover/down:border-blue-primary peer-hover/up:border-blue-primary peer-hover/down:disabled:border-gray-200 peer-hover/up:disabled:border-gray-200 [&::-webkit-inner-spin-button]:appearance-none',
   {
     variants: {
       variant: {

@@ -73,6 +73,7 @@ interface ProductCardProps {
   imagePriority?: boolean;
   showCart?: boolean;
   showCompare?: boolean;
+  className?: string;
 }
 
 export const ProductCard = ({
@@ -81,6 +82,7 @@ export const ProductCard = ({
   imagePriority = false,
   showCart = true,
   showCompare = false,
+  className,
 }: ProductCardProps) => {
   const summaryId = useId();
 
@@ -89,7 +91,7 @@ export const ProductCard = ({
   }
 
   return (
-    <ComponentsProductCard key={product.entityId}>
+    <ComponentsProductCard key={product.entityId} className={className}>
       <ProductCardImage>
         <div
           className={cn('relative w-full', {

@@ -25,8 +25,8 @@ const RectangleListItem = forwardRef<
 >(({ className, children, ...props }, ref) => (
   <RadioGroupPrimitive.Item
     className={cn(
-      'border-2 px-3 py-2 font-semibold text-black transition-colors hover:border-black focus:outline-none focus-visible:ring-2 focus-visible:ring-blue disabled:border-gray-100 disabled:text-gray-400 disabled:hover:border-gray-100',
-      'text-sm data-[state=checked]:border-pink',
+      'border-2 border-black px-3 py-2 font-semibold text-black transition-colors hover:bg-black/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue disabled:border-gray-100 disabled:text-gray-400 disabled:hover:border-gray-100',
+      'text-sm data-[state=checked]:bg-pink',
       className,
     )}
     ref={ref}

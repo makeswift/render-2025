@@ -83,7 +83,6 @@ export default async function Category({ params, searchParams }: Props) {
 
       <div className="flex">
         <FacetedSearch
-          className="hidden w-64 border-r border-black pl-5 pr-3 md:py-4 md:pl-6 md:pr-4 lg:block lg:py-5 lg:pl-8 lg:pr-6 xl:w-72 2xl:w-80"
           facets={search.facets.items}
           headingId="desktop-filter-heading"
           pageType="category"
@@ -96,7 +95,7 @@ export default async function Category({ params, searchParams }: Props) {
             Products
           </h2>
 
-          <div className="grid grid-cols-2 gap-3 px-4 py-4 sm:grid-cols-3 sm:gap-5 md:gap-8 md:px-6">
+          <div className="-mr-[1px] grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
             {products.map((product, index) => (
               <ProductCard
                 imagePriority={index <= 3}
@@ -109,7 +108,7 @@ export default async function Category({ params, searchParams }: Props) {
 
           <nav
             aria-label="Pagination"
-            className="mt-3 space-x-3 border-t border-black py-4 text-center md:mt-6 md:py-6"
+            className="-mt-[1px] space-x-3 border-t border-black bg-gray-200 py-4 text-center md:py-6"
           >
             {hasPreviousPage ? (
               <Link href={`${category.path}?before=${String(startCursor)}`}>

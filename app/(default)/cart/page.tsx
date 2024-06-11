@@ -16,11 +16,12 @@ export const metadata = {
 
 const EmptyCart = () => (
   <div className="flex h-full flex-col">
-    <h1 className="pb-6 text-4xl font-black lg:pb-10 lg:text-5xl">Your cart</h1>
-    <div className="flex grow flex-col items-center justify-center gap-6 border-t border-t-gray-200 py-20">
-      <h2 className="text-xl font-bold lg:text-2xl">Your cart is empty</h2>
-      <p className="text-center">
-        Looks like you have not addded anything to your cart. Go ahead & explore top categories.
+    <div className="flex grow flex-col items-center justify-center gap-4 py-20">
+      <h2 className="font-display text-xl font-bold uppercase md:text-2xl lg:text-3xl">
+        Your cart is empty
+      </h2>
+      <p className="text-center text-base md:text-lg">
+        Looks like you haven't addded anything to your cart
       </p>
     </div>
   </div>

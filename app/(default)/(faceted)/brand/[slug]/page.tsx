@@ -51,30 +51,26 @@ export default async function Brand({ params, searchParams }: Props) {
 
   return (
     <div>
-      <div className="md:mb-8 lg:flex lg:flex-row lg:items-center lg:justify-between">
-        <h1 className="mb-3 font-display text-xl font-bold uppercase md:text-2xl lg:mb-0 lg:text-3xl">
-          {brand.name}
-        </h1>
+      <div className="flex w-full flex-col flex-wrap items-center gap-4 border-b border-black px-4 py-4 sm:px-6 md:flex-row lg:px-8 lg:py-5">
+        <div className="flex w-full flex-1 items-center justify-between md:w-auto">
+          <h1 className="font-display text-xl font-bold uppercase md:mb-0 md:text-2xl lg:text-3xl">
+            {brand.name}
+          </h1>
 
-        <div className="flex flex-col items-center gap-3 whitespace-nowrap md:flex-row">
-          <MobileSideNav>
-            <FacetedSearch
-              facets={search.facets.items}
-              headingId="mobile-filter-heading"
-              pageType="brand"
-            />
-          </MobileSideNav>
-          <div className="flex w-full flex-col items-start gap-4 md:flex-row md:items-center md:justify-end md:gap-6">
+          <div className="flex w-full items-center gap-3 md:w-auto">
             <SortBy />
-            <div className="order-3 py-4 text-base font-semibold md:order-2 md:py-0">
-              {/* TODO: Plural vs. singular items */}
-              {productsCollection.collectionInfo?.totalItems} items
-            </div>
+            <MobileSideNav>
+              <FacetedSearch
+                facets={search.facets.items}
+                headingId="mobile-filter-heading"
+                pageType="brand"
+              />
+            </MobileSideNav>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-8">
+      <div className="flex">
         <FacetedSearch
           className="mb-8 hidden lg:block"
           facets={search.facets.items}
@@ -82,12 +78,12 @@ export default async function Brand({ params, searchParams }: Props) {
           pageType="brand"
         />
 
-        <section aria-labelledby="product-heading" className="col-span-4 lg:col-span-3">
+        <section aria-labelledby="product-heading" className="flex-1">
           <h2 className="sr-only" id="product-heading">
             Products
           </h2>
 
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8">
+          <div className="-mr-[1px] grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
             {products.map((product, index) => (
               <ProductCard
                 imagePriority={index <= 3}
@@ -98,23 +94,26 @@ export default async function Brand({ params, searchParams }: Props) {
             ))}
           </div>
 
-          <nav aria-label="Pagination" className="text-blue-primary my-6 text-center">
+          <nav
+            aria-label="Pagination"
+            className="-mt-[1px] space-x-3 border-t border-black bg-gray-200 py-4 text-center md:py-6"
+          >
             {hasPreviousPage ? (
               <Link href={`${brand.path}?before=${String(startCursor)}`}>
                 <span className="sr-only">Previous</span>
-                <ChevronLeft aria-hidden="true" className="inline-block h-8 w-8" />
+                <ChevronLeft aria-hidden="true" className="inline-block h-6 w-6" />
               </Link>
             ) : (
-              <ChevronLeft aria-hidden="true" className="inline-block h-8 w-8 text-gray-200" />
+              <ChevronLeft aria-hidden="true" className="inline-block h-6 w-6 opacity-15" />
             )}
 
             {hasNextPage ? (
               <Link href={`${brand.path}?after=${String(endCursor)}`}>
                 <span className="sr-only">Next</span>
-                <ChevronRight aria-hidden="true" className="inline-block h-8 w-8" />
+                <ChevronRight aria-hidden="true" className="inline-block h-6 w-6" />
               </Link>
             ) : (
-              <ChevronRight aria-hidden="true" className="inline-block h-8 w-8 text-gray-200" />
+              <ChevronRight aria-hidden="true" className="inline-block h-6 w-6 opacity-15" />
             )}
           </nav>
         </section>

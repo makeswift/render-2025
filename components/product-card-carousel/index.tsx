@@ -54,24 +54,27 @@ export const ProductCardCarousel = ({
           <CarouselNextIndicator />
         </span>
       </div>
-      <CarouselContent>
-        {products.map((product, index) => (
-          <CarouselSlide
-            aria-label={`${index + 1} of ${groupedProducts.length}`}
-            id={`${id}-slide-${index + 1}`}
-            index={index}
-            key={index}
-          >
-            <ProductCard
-              imageSize="square"
-              key={product.entityId}
-              product={product}
-              showCart={showCart}
-              showCompare={showCompare}
-            />
-          </CarouselSlide>
-        ))}
-      </CarouselContent>
+      <div className="border-t border-black">
+        <CarouselContent>
+          {products.map((product, index) => (
+            <CarouselSlide
+              aria-label={`${index + 1} of ${groupedProducts.length}`}
+              id={`${id}-slide-${index + 1}`}
+              index={index}
+              key={index}
+            >
+              <ProductCard
+                imageSize="square"
+                key={product.entityId}
+                product={product}
+                showCart={showCart}
+                showCompare={showCompare}
+                className="h-full"
+              />
+            </CarouselSlide>
+          ))}
+        </CarouselContent>
+      </div>
       <Pagination groupedProducts={groupedProducts} id={id} />
     </Carousel>
   );
