@@ -55,7 +55,7 @@ export const ProductForm = ({ product }: { product: Product }) => {
 
   return (
     <FormProvider handleSubmit={handleSubmit} register={register} {...methods}>
-      <form onSubmit={handleSubmit(productFormSubmit)}>
+      <form onSubmit={handleSubmit(productFormSubmit)} className="space-y-4">
         <input type="hidden" value={product.entityId} {...register('product_id')} />
 
         {product.productOptions?.map((option) => {
