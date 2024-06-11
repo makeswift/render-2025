@@ -33,6 +33,12 @@ const getExistingRouteInfo = async (request: NextRequest, event: NextFetchEvent)
   try {
     const pathname = request.nextUrl.pathname;
 
+    if (pathname === '/') {
+      return {
+        node: null,
+      };
+    }
+
     const [routeCache] = await kv.mget<RouteCache>(
       pathname,
     );
