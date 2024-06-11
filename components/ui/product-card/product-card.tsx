@@ -6,7 +6,10 @@ const ProductCard = forwardRef<ElementRef<'div'>, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...props }, ref) => {
     return (
       <div
-        className={cn('group relative flex flex-col items-start overflow-visible', className)}
+        className={cn(
+          'group relative flex flex-col items-start overflow-visible px-4 md:px-5',
+          className,
+        )}
         ref={ref}
         {...props}
       >
@@ -49,7 +52,11 @@ ProductCardBadge.displayName = 'ProductCardBadge';
 const ProductCardInfo = forwardRef<ElementRef<'div'>, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...props }, ref) => {
     return (
-      <div className={cn('flex flex-1 flex-col gap-1 pr-6', className)} ref={ref} {...props}>
+      <div
+        className={cn('flex w-full flex-1 flex-col gap-1 py-4 md:py-5', className)}
+        ref={ref}
+        {...props}
+      >
         {children}
       </div>
     );
@@ -61,7 +68,7 @@ ProductCardInfo.displayName = 'ProductCardInfo';
 const ProductCardInfoBrandName = forwardRef<ElementRef<'p'>, ComponentPropsWithRef<'p'>>(
   ({ children, className, ...props }, ref) => {
     return (
-      <p className={cn('text-base text-gray-500', className)} {...props} ref={ref}>
+      <p className={cn('text-base text-black/50', className)} {...props} ref={ref}>
         {children}
       </p>
     );

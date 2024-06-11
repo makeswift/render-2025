@@ -15,6 +15,7 @@ import { BaseFooterMenu, BrandFooterMenu, CategoryFooterMenu } from './footer-me
 import { WebPageFooterMenu } from './footer-menus/web-page-footer-menu';
 import { PaymentMethods } from './payment-methods';
 import { SocialIcons } from './social-icons';
+import Image from 'next/image';
 
 type StoreSettings = ExistingResultType<typeof getStoreSettings>;
 type CategoryTree = ExistingResultType<typeof getCategoryTree>;
@@ -46,7 +47,13 @@ export const BaseFooter = ({ brands, categoryTree, storeSettings, webPages }: Pr
         </FooterNav>
         <div className="flex shrink-0 grow flex-col gap-4 sm:order-first">
           <h3 className="mb-2 md:mb-4">
-            <StoreLogo settings={storeSettings} />
+            <Image
+              alt="RenderATL 2024 logo"
+              src="/images/RenderATL-2024-Logo-White.svg"
+              width={132}
+              height={35}
+            />
+            {/* <StoreLogo settings={storeSettings} /> */}
           </h3>
           {/* <ContactInformation contact={storeSettings.contact} /> */}
           <SocialIcons storeSettings={storeSettings} />

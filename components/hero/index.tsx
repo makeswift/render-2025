@@ -18,7 +18,7 @@ const slides = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     buttonText: 'Shop now',
-    buttonLink: '/#',
+    buttonLink: '/shop-all',
     image: '/images/hardwear-hero.webp',
     overlay: true,
   },
@@ -27,7 +27,7 @@ const slides = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     buttonText: 'Shop now',
-    buttonLink: '/#',
+    buttonLink: '/shop-all',
     image: '',
     overlay: false,
   },
@@ -36,7 +36,7 @@ const slides = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     buttonText: 'Shop now',
-    buttonLink: '/#',
+    buttonLink: '/shop-all',
     image: '',
     overlay: true,
   },
@@ -68,7 +68,7 @@ export const Hero = () => (
             <p className="mb-5 text-lg font-light leading-normal text-white md:mb-8 md:text-xl">
               {slide.description}
             </p>
-            <Button asChild className="w-fit">
+            <Button asChild className="w-fit py-3 text-sm">
               <a href={slide.buttonLink}>{slide.buttonText}</a>
             </Button>
           </div>

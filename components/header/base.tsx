@@ -17,6 +17,7 @@ import { ExistingResultType } from '~/client/util';
 import { Link } from '~/components/link';
 
 import { StoreLogo } from '../store-logo';
+import Image from 'next/image';
 
 type StoreSettings = ExistingResultType<typeof getStoreSettings>;
 
@@ -43,7 +44,14 @@ export const BasePagesHeader = ({
         <div className="flex-1">
           <NavigationMenuLink asChild className="inline-block !p-0">
             <Link href="/">
-              <StoreLogo settings={storeSettings} />
+              <Image
+                alt="RenderATL 2024 logo"
+                src="/images/RenderATL-2024-Logo-Black.svg"
+                width={132}
+                height={35}
+                priority={true}
+              />
+              {/* <StoreLogo settings={storeSettings} /> */}
             </Link>
           </NavigationMenuLink>
         </div>

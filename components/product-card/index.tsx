@@ -80,7 +80,7 @@ export const ProductCard = ({
   imageSize = 'square',
   imagePriority = false,
   showCart = true,
-  showCompare = true,
+  showCompare = false,
 }: ProductCardProps) => {
   const summaryId = useId();
 
@@ -126,8 +126,8 @@ export const ProductCard = ({
             product.name
           )}
         </ProductCardInfoProductName>
-        {product.reviewSummary && (
-          <div className="flex hidden items-center gap-3">
+        {/* {product.reviewSummary && (
+          <div className="flex items-center gap-3">
             <p
               aria-describedby={summaryId}
               className={cn(
@@ -150,7 +150,7 @@ export const ProductCard = ({
               {product.reviewSummary.numberOfReviews})
             </div>
           </div>
-        )}
+        )} */}
         <div className="flex flex-wrap items-end justify-between">
           <ProductCardInfoPrice>
             <Pricing prices={product.prices} />
