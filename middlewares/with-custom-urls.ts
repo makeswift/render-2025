@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse, NextFetchEvent } from 'next/server';
 import { z } from 'zod';
 
 import { getSessionCustomerId } from '~/auth';
@@ -43,7 +43,7 @@ const RouteCacheSchema = z.object({
   expiryTime: z.number(),
 });
 
-const getExistingRouteInfo = async (request: NextRequest) => {
+const getExistingRouteInfo = async (request: NextRequest, event: NextFetchEvent) => {
   try {
     const pathname = request.nextUrl.pathname;
 
@@ -53,22 +53,22 @@ const getExistingRouteInfo = async (request: NextRequest) => {
     );
 
     if (statusCache && statusCache.expiryTime < Date.now()) {
-      void fetch(new URL(`/api/revalidate/store-status`, request.url), {
+      event.waitUntil(fetch(new URL(`/api/revalidate/store-status`, request.url), {
         method: 'POST',
         headers: {
           'x-internal-token': process.env.BIGCOMMERCE_CUSTOMER_IMPERSONATION_TOKEN ?? '',
         },
-      });
+      }));
     }
 
     if (routeCache && routeCache.expiryTime < Date.now()) {
-      void fetch(new URL(`/api/revalidate/route`, request.url), {
+      event.waitUntil(fetch(new URL(`/api/revalidate/route`, request.url), {
         method: 'POST',
         body: JSON.stringify({ pathname }),
         headers: {
           'x-internal-token': process.env.BIGCOMMERCE_CUSTOMER_IMPERSONATION_TOKEN ?? '',
         },
-      });
+      }));
     }
 
     const parsedRoute = RouteCacheSchema.safeParse(routeCache);
