@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default async function Home() {
   const [bestSellingProducts, featuredProducts] = await Promise.all([
-    getBestSellingProducts({ imageWidth: 500, imageHeight: 500 }),
+    // getBestSellingProducts({ imageWidth: 500, imageHeight: 500 }),
     getFeaturedProducts({ imageWidth: 500, imageHeight: 500 }),
   ]);
 
@@ -55,19 +55,19 @@ export default async function Home() {
       </div>
 
       <div className="p-5 md:p-8 lg:p-10">
-        <ProductCardCarousel
+        {/* <ProductCardCarousel
           products={bestSellingProducts}
           showCart={false}
           showCompare={false}
           title="Best Selling Products"
-        />
+        /> */}
 
-        {/* <ProductCardCarousel
+        <ProductCardCarousel
           products={featuredProducts}
           showCart={false}
           showCompare={false}
           title="Featured Products"
-        /> */}
+        />
       </div>
     </>
   );
