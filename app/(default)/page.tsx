@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default async function Home() {
   const [bestSellingProducts, featuredProducts] = await Promise.all([
-    // getBestSellingProducts({ imageWidth: 500, imageHeight: 500 }),
+    getBestSellingProducts({ imageWidth: 500, imageHeight: 500 }),
     getFeaturedProducts({ imageWidth: 500, imageHeight: 500 }),
   ]);
 
