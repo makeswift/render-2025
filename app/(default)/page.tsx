@@ -75,7 +75,7 @@ export default async function Home() {
               src="/images/paypal_logo.png"
             />
           </Link>
-          <Link href="https://www.bigcommerce.com/" target="_blank">
+          <Link href="https://www.catalyst.dev/" target="_blank">
             <Image
               alt="BigCommerce Logo"
               className="!relative inline-block !h-[unset] max-w-[95px] object-contain"
