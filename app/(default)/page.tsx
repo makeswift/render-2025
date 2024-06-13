@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { getBestSellingProducts } from '~/client/queries/get-best-selling-products';
 import { getFeaturedProducts } from '~/client/queries/get-featured-products';
@@ -46,7 +47,7 @@ export default async function Home() {
         {logos.map((logo, index) => (
           <div className="w-full place-content-center bg-white p-8 " key={index}>
             <div className="w-full [&>div]:![position:unset]" />
-            <a href={logo.link}>
+            <Link href={logo.link} prefetch={true}>
               <Image
                 alt={logo.alt}
                 className="!relative mx-auto !h-[unset] !w-full object-contain"
@@ -55,7 +56,7 @@ export default async function Home() {
                 src={logo.src}
                 style={{ maxWidth: logo.width }}
               />
-            </a>
+            </Link>
           </div>
         ))}
       </div>
