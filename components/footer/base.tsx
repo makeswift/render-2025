@@ -38,8 +38,8 @@ export const BaseFooter = ({ brands, categoryTree, storeSettings, webPages }: Pr
           <WebPageFooterMenu webPages={webPages} />
           <BaseFooterMenu
             items={[
-              { name: 'About Us', path: '/about-us' },
-              { name: 'FAQ', path: '/faq' },
+              { name: 'About Us', path: 'https://www.enterrender.com/' },
+              { name: 'FAQ', path: 'https://www.renderatl.com/faq' },
             ]}
             title="Help"
           />
