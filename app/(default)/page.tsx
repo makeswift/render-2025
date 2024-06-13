@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { getBestSellingProducts } from '~/client/queries/get-best-selling-products';
 import { getFeaturedProducts } from '~/client/queries/get-featured-products';
@@ -58,6 +59,42 @@ export default async function Home() {
             </a>
           </div>
         ))}
+      </div>
+
+      <div className="bg-black py-9 text-center">
+        <h2 className="mb-8 font-display text-lg font-bold uppercase text-white md:text-xl lg:text-2xl">
+          Powered By
+        </h2>
+        <div className="mx-auto flex max-w-[98rem] flex-row items-center justify-evenly">
+          <Link href="https://www.paypal.com/" target="_blank">
+            <Image
+              alt="PayPal Logo"
+              className="!relative inline-block !h-[unset] max-w-[90px] object-contain brightness-0 invert md:max-w-[125px]"
+              layout="fill"
+              priority={true}
+              src="/images/paypal_logo.png"
+            />
+          </Link>
+          <Link href="https://www.bigcommerce.com/" target="_blank">
+            <Image
+              alt="BigCommerce Logo"
+              className="!relative inline-block !h-[unset] max-w-[95px] object-contain"
+              layout="fill"
+              priority={true}
+              src="/images/bc_logo.png"
+            />
+          </Link>
+          {/* <p className="invisible font-display text-3xl font-bold text-white md:visible">+</p> */}
+          <Link href="https://www.obundle.com/" target="_blank">
+            <Image
+              alt="oBundle Logo"
+              className="!relative inline-block !h-[unset] max-w-[85px] object-contain brightness-0 invert md:max-w-[110px]"
+              layout="fill"
+              priority={true}
+              src="/images/oBundle_logo.png"
+            />
+          </Link>
+        </div>
       </div>
 
       <div className="p-5 md:p-8 lg:p-10">

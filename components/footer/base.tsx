@@ -15,6 +15,8 @@ import { BaseFooterMenu, BrandFooterMenu, CategoryFooterMenu } from './footer-me
 import { WebPageFooterMenu } from './footer-menus/web-page-footer-menu';
 import { PaymentMethods } from './payment-methods';
 import { SocialIcons } from './social-icons';
+import Link from 'next/link';
+import Image from 'next/image';
 
 type StoreSettings = ExistingResultType<typeof getStoreSettings>;
 type CategoryTree = ExistingResultType<typeof getCategoryTree>;
