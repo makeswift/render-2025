@@ -1,8 +1,9 @@
+import Image from 'next/image';
+
 import { getBestSellingProducts } from '~/client/queries/get-best-selling-products';
 import { getFeaturedProducts } from '~/client/queries/get-featured-products';
 import { Hero } from '~/components/hero';
 import { ProductCardCarousel } from '~/components/product-card-carousel';
-import Image from 'next/image';
 
 export default async function Home() {
   const [bestSellingProducts, featuredProducts] = await Promise.all([
@@ -14,21 +15,25 @@ export default async function Home() {
     {
       alt: 'Hardwear',
       src: '/images/hardwear.svg',
+      link: '/shop-all/?brand=39',
       width: 120,
     },
     {
       alt: 'Dresscode',
       src: '/images/dresscode.svg',
+      link: '/shop-all/?brand=40',
       width: 100,
     },
     {
       alt: 'Fuzzies',
       src: '/images/fuzzies.svg',
+      link: '/shop-all/?brand=38',
       width: 124,
     },
     {
       alt: 'Talley & Twine',
       src: '/images/talley-and-twine.svg',
+      link: '/shop-all/?brand=41',
       width: 160,
     },
   ];
@@ -39,17 +44,18 @@ export default async function Home() {
 
       <div className="grid h-auto w-full grid-cols-2 gap-[1px] bg-black md:h-36 md:grid-cols-4">
         {logos.map((logo, index) => (
-          <div className="w-full place-content-center bg-white p-8 ">
-            <div className="w-full [&>div]:![position:unset]"></div>
-            <Image
-              key={index}
-              alt={logo.alt}
-              className="!relative mx-auto !h-[unset] !w-full object-contain"
-              layout="fill"
-              priority={true}
-              src={logo.src}
-              style={{ maxWidth: logo.width }}
-            />
+          <div className="w-full place-content-center bg-white p-8 " key={index}>
+            <div className="w-full [&>div]:![position:unset]" />
+            <a href={logo.link}>
+              <Image
+                alt={logo.alt}
+                className="!relative mx-auto !h-[unset] !w-full object-contain"
+                layout="fill"
+                priority={true}
+                src={logo.src}
+                style={{ maxWidth: logo.width }}
+              />
+            </a>
           </div>
         ))}
       </div>
