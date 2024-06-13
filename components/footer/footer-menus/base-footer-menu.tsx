@@ -24,7 +24,9 @@ export const BaseFooterMenu = ({
       <FooterNavGroupList>
         {items.map((item) => (
           <FooterNavLink asChild key={item.path}>
-            <Link href={item.path}>{item.name}</Link>
+            <Link href={item.path} prefetch={true}>
+              {item.name}
+            </Link>
           </FooterNavLink>
         ))}
       </FooterNavGroupList>
