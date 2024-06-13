@@ -12,6 +12,8 @@ import {
   SlideshowSlide,
 } from '@bigcommerce/components/slideshow';
 
+import { Link } from '../link';
+
 const slides = [
   {
     title: 'Keep it Fuzzie',
@@ -85,7 +87,9 @@ export const Hero = () => (
               {slide.description}
             </p>
             <Button asChild className="w-fit">
-              <a href={slide.buttonLink}>{slide.buttonText}</a>
+              <Link href={slide.buttonLink} prefetch={true}>
+                {slide.buttonText}
+              </Link>
             </Button>
           </div>
         </SlideshowSlide>
